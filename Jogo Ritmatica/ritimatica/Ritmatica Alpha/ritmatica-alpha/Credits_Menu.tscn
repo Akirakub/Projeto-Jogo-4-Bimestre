@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://br1bqubs6xxy7"]
+
+[ext_resource type="FontFile" uid="uid://dmi5esnpvjokf" path="res://beatstreet.ttf" id="1_1od5n"]
+[ext_resource type="Script" uid="uid://ce4se5n2n8syf" path="res://credits_menu.gd" id="1_5uq43"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
+bg_color = Color(0.33907458, 0.6502115, 0.84197754, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5uq43"]
+bg_color = Color(0.093586184, 0.26672822, 0.36749986, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_806ox"]
+bg_color = Color(0.19792059, 0.4725997, 0.63412446, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_plgie"]
+
+[node name="Control" type="Control" unique_id=444294296]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5uq43")
+
+[node name="Panel" type="Panel" parent="." unique_id=1262388453]
+layout_mode = 0
+offset_right = 1159.0
+offset_bottom = 648.0
+
+[node name="Button" type="Button" parent="." unique_id=546038738]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 23.0
+offset_right = 211.0
+offset_bottom = 100.0
+theme_override_fonts/font = ExtResource("1_1od5n")
+theme_override_font_sizes/font_size = 49
+theme_override_styles/normal = SubResource("StyleBoxFlat_g4v7s")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5uq43")
+theme_override_styles/hover = SubResource("StyleBoxFlat_806ox")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_plgie")
+text = "BACK"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_back_pressed"]

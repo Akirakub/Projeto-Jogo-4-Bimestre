@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://ckr5cthiaj3qf"]
+
+[ext_resource type="Script" uid="uid://db42nbn0lm68x" path="res://main_menu.gd" id="1_dnfjo"]
+[ext_resource type="Texture2D" uid="uid://bww3n8uixt54b" path="res://6.png" id="1_m625n"]
+[ext_resource type="FontFile" uid="uid://dmi5esnpvjokf" path="res://beatstreet.ttf" id="2_gtid3"]
+[ext_resource type="FontFile" uid="uid://v528pqo7qfa4" path="res://Degrassi.otf" id="3_gtid3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g4v7s"]
+texture = ExtResource("1_m625n")
+modulate_color = Color(0.40832943, 0.4083295, 0.40832922, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m625n"]
+bg_color = Color(0.43076298, 0.6333879, 0.72550166, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gtid3"]
+bg_color = Color(0.1911602, 0.3242652, 0.38191065, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dnfjo"]
+bg_color = Color(0.30960616, 0.4915076, 0.57085484, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dbdhr"]
+
+[node name="MainMenu" type="Control" unique_id=1552504796]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 523.0
+offset_top = 251.0
+offset_right = -540.0
+offset_bottom = -204.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dnfjo")
+
+[node name="Background_Menu" type="Panel" parent="." unique_id=1484892537]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -5.8650002
+anchor_top = -1.3010001
+anchor_right = 7.0790005
+anchor_bottom = 2.0470002
+offset_left = -0.014953613
+offset_top = 0.09301758
+offset_right = -0.031066895
+offset_bottom = -0.07104492
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_g4v7s")
+
+[node name="Conteiner_Menu_Main" type="VBoxContainer" parent="." unique_id=1820996200]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 4.096
+anchor_top = 0.5
+anchor_right = 4.096
+anchor_bottom = 0.5
+offset_left = -249.544
+offset_top = -159.5
+offset_right = 245.456
+offset_bottom = 165.5
+grow_vertical = 2
+theme_override_constants/separation = 37
+
+[node name="Button_Play" type="Button" parent="Conteiner_Menu_Main" unique_id=1211765502]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.047557496, 0.047557727, 0.04755757, 1)
+theme_override_fonts/font = ExtResource("2_gtid3")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_m625n")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gtid3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dnfjo")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dbdhr")
+text = "PLAY"
+
+[node name="Button_Credits" type="Button" parent="Conteiner_Menu_Main" unique_id=1249080725]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.025363723, 0.025363848, 0.025363745, 1)
+theme_override_fonts/font = ExtResource("2_gtid3")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_m625n")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gtid3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dnfjo")
+text = "CREDITS"
+
+[node name="Button_Exit_Game" type="Button" parent="Conteiner_Menu_Main" unique_id=770137753]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.10747949, 0.10747983, 0.107479595, 1)
+theme_override_fonts/font = ExtResource("2_gtid3")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_m625n")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gtid3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dnfjo")
+text = "EXIT GAME"
+
+[node name="Title" type="Label" parent="." unique_id=1569782824]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.68500006
+anchor_right = 0.68500006
+offset_left = -280.965
+offset_top = -242.0
+offset_right = 285.035
+offset_bottom = -89.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.23804298, 0.4980169, 0.612331, 1)
+theme_override_fonts/font = ExtResource("3_gtid3")
+theme_override_font_sizes/font_size = 100
+text = "RITMATICA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Conteiner_Menu_Main/Button_Play" to="." method="_on_button_play_pressed"]
+[connection signal="pressed" from="Conteiner_Menu_Main/Button_Credits" to="." method="_on_button_credits_pressed"]
+[connection signal="pressed" from="Conteiner_Menu_Main/Button_Exit_Game" to="." method="_on_button_exit_game_pressed"]

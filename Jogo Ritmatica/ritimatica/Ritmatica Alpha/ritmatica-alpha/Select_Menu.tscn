@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://b0jsrhv1hhamp"]
+
+[ext_resource type="Script" uid="uid://5mtppyy34b0h" path="res://select_menu.gd" id="1_vplkc"]
+[ext_resource type="FontFile" uid="uid://dmi5esnpvjokf" path="res://beatstreet.ttf" id="1_vsc81"]
+[ext_resource type="Texture2D" uid="uid://bww3n8uixt54b" path="res://6.png" id="2_y2w5o"]
+[ext_resource type="FontFile" uid="uid://v528pqo7qfa4" path="res://Degrassi.otf" id="4_m07q4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5uq43"]
+texture = ExtResource("2_y2w5o")
+modulate_color = Color(0.21823555, 0.27283004, 0.29988682, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
+bg_color = Color(0.3074001, 0.66785014, 0.7753851, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vsc81"]
+bg_color = Color(0.087681495, 0.26261187, 0.3142958, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vplkc"]
+bg_color = Color(0.15704876, 0.4107, 0.48592138, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g4v7s"]
+
+[node name="Control" type="Control" unique_id=861999654]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -12.0
+offset_top = -11.0
+offset_right = -12.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vplkc")
+
+[node name="Panel" type="Panel" parent="." unique_id=1977758762]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.51100004
+anchor_right = 0.51100004
+offset_left = -579.67206
+offset_top = 10.0
+offset_right = 576.32794
+offset_bottom = 659.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_5uq43")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=637068344]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.518
+anchor_right = 0.518
+offset_left = -304.73602
+offset_top = 289.0
+offset_right = 329.26398
+offset_bottom = 605.0
+grow_horizontal = 2
+theme_override_constants/separation = 40
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=1996819381]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vsc81")
+theme_override_font_sizes/font_size = 55
+theme_override_styles/normal = SubResource("StyleBoxFlat_g4v7s")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vsc81")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vplkc")
+text = "FIRST CLASS"
+
+[node name="Button5" type="Button" parent="VBoxContainer" unique_id=1379576672]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vsc81")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_g4v7s")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vsc81")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vplkc")
+text = "SECOND CLASS"
+
+[node name="Button4" type="Button" parent="VBoxContainer" unique_id=1306720468]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_vsc81")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_g4v7s")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vsc81")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vplkc")
+text = "THIRD CLASS"
+
+[node name="Button_Back" type="Button" parent="." unique_id=1649805221]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.089
+anchor_right = 0.089
+offset_left = -58.528
+offset_top = 25.0
+offset_right = 118.472
+offset_bottom = 99.0
+theme_override_fonts/font = ExtResource("1_vsc81")
+theme_override_font_sizes/font_size = 47
+theme_override_styles/normal = SubResource("StyleBoxFlat_g4v7s")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vsc81")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vplkc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g4v7s")
+text = "BACK"
+
+[node name="Label" type="Label" parent="." unique_id=1124882505]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.523
+anchor_right = 0.523
+offset_left = -261.49597
+offset_top = 88.0
+offset_right = 273.50403
+offset_bottom = 173.0
+theme_override_fonts/font = ExtResource("4_m07q4")
+theme_override_font_sizes/font_size = 70
+text = "SELECT CLASS"
+
+[connection signal="pressed" from="Button_Back" to="." method="_on_button_back_pressed"]
