@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dtqy66qoxaxln"]
+
+[ext_resource type="Script" uid="uid://ccalgkqgal6qd" path="res://Scripts/Logica_game/lbconta.gd" id="1_ymjml"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xfl5r"]
+font_size = 58
+
+[node name="Node2D" type="Node2D" unique_id=2086823395]
+
+[node name="Label" type="Label" parent="." unique_id=709895094]
+offset_left = 395.0
+offset_top = 277.0
+offset_right = 920.0
+offset_bottom = 451.0
+text = "games"
+label_settings = SubResource("LabelSettings_xfl5r")
+script = ExtResource("1_ymjml")

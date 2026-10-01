@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://blosmytjubhvb"]
+
+[ext_resource type="PackedScene" uid="uid://bqdjump2wekrt" path="res://Scenes/Characters_Scenes/Professor.tscn" id="1_8ie8l"]
+[ext_resource type="Texture2D" uid="uid://cueofkb3feg5d" path="res://Assets/Scenery/sc2.png" id="1_hkv5h"]
+[ext_resource type="PackedScene" uid="uid://cmcxya71kr6b1" path="res://Scenes/Menu_Scenes/pause_menu.tscn" id="1_wsas0"]
+[ext_resource type="PackedScene" uid="uid://d163mevjqqss6" path="res://Scenes/Characters_Scenes/Luis.tscn" id="2_48sx6"]
+[ext_resource type="PackedScene" uid="uid://cwsehkx0fw1aj" path="res://Scenes/Logica_game/continha.tscn" id="3_26pow"]
+[ext_resource type="Script" uid="uid://ccalgkqgal6qd" path="res://Scripts/lbconta.gd" id="5_03208"]
+[ext_resource type="AudioStream" uid="uid://jkwhrhfpo72l" path="res://Sounds/CLASSES/we_bossa.mp3" id="6_48sx6"]
+[ext_resource type="Script" uid="uid://b36yryc2cb2cy" path="res://Scenes/First_Class/1stclass.gd" id="7_ktgsp"]
+
+[sub_resource type="Theme" id="Theme_rgbb6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yo32x"]
+font_size = 58
+
+[node name="Control" type="Control" unique_id=1175343879]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Lousa" type="TextureRect" parent="." unique_id=1979246411]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.48200002
+anchor_right = 0.48200002
+offset_left = -610.96
+offset_top = -259.0
+offset_right = 669.04
+offset_bottom = 731.0
+grow_horizontal = 2
+texture = ExtResource("1_hkv5h")
+
+[node name="CharacterBody2D2" parent="." unique_id=1099341462 instance=ExtResource("2_48sx6")]
+position = Vector2(1117, 435)
+
+[node name="CharacterBody2D" parent="." unique_id=1540156086 instance=ExtResource("1_8ie8l")]
+position = Vector2(197, 430)
+
+[node name="Node2D" parent="." unique_id=2086823395 instance=ExtResource("3_26pow")]
+position = Vector2(6, -43)
+
+[node name="Label2" type="Label" parent="Node2D" unique_id=431809630]
+offset_left = 457.0
+offset_top = 293.0
+offset_right = 982.0
+offset_bottom = 506.0
+theme = SubResource("Theme_rgbb6")
+theme_override_font_sizes/font_size = 21
+text = "14142141241"
+label_settings = SubResource("LabelSettings_yo32x")
+script = ExtResource("5_03208")
+
+[node name="Pause_menu" parent="." unique_id=1177129093 instance=ExtResource("1_wsas0")]
+layer = 0
+visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=747118439]
+stream = ExtResource("6_48sx6")
+bus = &"Music"
+script = ExtResource("7_ktgsp")
+
+[connection signal="tempo" from="AudioStreamPlayer" to="Node2D/Label2" method="_on_audio_stream_player_tempo"]

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cwsehkx0fw1aj"]
+
+[ext_resource type="Script" uid="uid://ccalgkqgal6qd" path="res://Scripts/lbconta.gd" id="1_ymjml"]
+
+[sub_resource type="Theme" id="Theme_jerjm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xfl5r"]
+font_size = 58
+
+[node name="Node2D" type="Node2D" unique_id=2086823395]
+
+[node name="Label" type="Label" parent="." unique_id=709895094]
+offset_left = 457.0
+offset_top = 293.0
+offset_right = 982.0
+offset_bottom = 506.0
+theme = SubResource("Theme_jerjm")
+theme_override_font_sizes/font_size = 21
+text = "14142141241"
+label_settings = SubResource("LabelSettings_xfl5r")
+script = ExtResource("1_ymjml")

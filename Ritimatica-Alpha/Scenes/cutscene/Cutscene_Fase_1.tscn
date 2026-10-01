@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://k1rcvt8reugn"]
+
+[ext_resource type="Script" uid="uid://kvqpjih8i68a" path="res://cutscene_1.gd" id="1_k1543"]
+[ext_resource type="FontFile" uid="uid://dmi5esnpvjokf" path="res://Assets/Fonts/Text_Font/beatstreet.ttf" id="2_ka3bx"]
+
+[node name="Control" type="Control" unique_id=1616770154]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=139942362]
+layout_mode = 0
+offset_top = -2.0
+offset_right = 1283.0
+offset_bottom = 719.0
+script = ExtResource("1_k1543")
+
+[node name="Button" type="Button" parent="." unique_id=381577301]
+layout_mode = 0
+offset_left = 1016.0
+offset_top = 611.0
+offset_right = 1232.0
+offset_bottom = 674.0
+theme_override_fonts/font = ExtResource("2_ka3bx")
+theme_override_font_sizes/font_size = 46
+text = "Next"
+
+[connection signal="pressed" from="Button" to="TextureRect" method="_on_button_pressed"]

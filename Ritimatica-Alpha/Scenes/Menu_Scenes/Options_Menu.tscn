@@ -1,0 +1,156 @@
+[gd_scene format=3 uid="uid://yri7u3n5m3ep"]
+
+[ext_resource type="Script" uid="uid://buoqd1hmp7ed2" path="res://Scripts/Menu/Options/options_menu.gd" id="1_7qfng"]
+[ext_resource type="FontFile" uid="uid://dmi5esnpvjokf" path="res://Assets/Fonts/Text_Font/beatstreet.ttf" id="2_8w7l2"]
+[ext_resource type="AudioStream" uid="uid://dabkgfyilqqiw" path="res://Sounds/BG/194567__loopdilla__hip-hop-drum-loop-08.wav" id="3_8w7l2"]
+[ext_resource type="Script" uid="uid://d2jcr15vr0d7m" path="res://Scripts/Sliders/h_slide_master.gd" id="4_y3ggx"]
+[ext_resource type="Script" uid="uid://iva3p5gevby6" path="res://Scripts/Sliders/h_slider_Music.gd" id="5_tf6qg"]
+[ext_resource type="Script" uid="uid://bydu35o1ngctq" path="res://Scripts/Sliders/sfx_slide.gd" id="6_3swub"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kcri3"]
+bg_color = Color(0.33907458, 0.6502115, 0.84197754, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jxu4m"]
+bg_color = Color(0.093586184, 0.26672822, 0.36749986, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hjp7j"]
+bg_color = Color(0.19792059, 0.4725997, 0.63412446, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iku04"]
+
+[node name="Control" type="Control" unique_id=1432488962]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7qfng")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1894872562]
+layout_mode = 0
+offset_left = -4.0
+offset_top = -6.0
+offset_right = 1275.0
+offset_bottom = 711.0
+color = Color(0.14117648, 0.14117648, 0.14117648, 1)
+
+[node name="Button_Back" type="Button" parent="ColorRect" unique_id=2000004015]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 11.0
+offset_right = 193.0
+offset_bottom = 88.0
+theme_override_fonts/font = ExtResource("2_8w7l2")
+theme_override_font_sizes/font_size = 49
+theme_override_styles/normal = SubResource("StyleBoxFlat_kcri3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jxu4m")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hjp7j")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_iku04")
+text = "BACK"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=850298891]
+stream = ExtResource("3_8w7l2")
+volume_db = -10.035
+autoplay = true
+bus = &"Music"
+
+[node name="Label" type="Label" parent="." unique_id=58757889]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -120.0
+offset_top = 76.0
+offset_right = 140.0
+offset_bottom = 146.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_8w7l2")
+theme_override_font_sizes/font_size = 60
+text = "   SOUNDS"
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=712890020]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -254.0
+offset_top = 187.0
+offset_right = 319.0
+offset_bottom = 437.0
+grow_horizontal = 2
+color = Color(0.10721465, 0.34101224, 0.6242965, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1450047425]
+layout_mode = 0
+offset_left = 396.0
+offset_top = 192.0
+offset_right = 944.0
+offset_bottom = 442.0
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=598907599]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "               	     Master "
+
+[node name="Master_slide" type="HSlider" parent="VBoxContainer" unique_id=1454731067]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("4_y3ggx")
+bus_Master = "Master"
+
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=1441532122]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "                     Music"
+
+[node name="Music_slide" type="HSlider" parent="VBoxContainer" unique_id=1733518359]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("5_tf6qg")
+bus_Music = "Music"
+
+[node name="Label3" type="Label" parent="VBoxContainer" unique_id=253748172]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "                       SFX"
+
+[node name="SFX_slide" type="HSlider" parent="VBoxContainer" unique_id=1255048002]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("6_3swub")
+bus_SFX = "SFX"
+
+[node name="CheckBox" type="CheckBox" parent="." unique_id=567461903]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -89.0
+offset_top = 510.0
+offset_right = 83.0
+offset_bottom = 604.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 23
+text = "FullScreen"
+
+[connection signal="pressed" from="ColorRect/Button_Back" to="." method="_on_button_back_pressed"]
+[connection signal="toggled" from="CheckBox" to="." method="_on_check_box_toggled"]
