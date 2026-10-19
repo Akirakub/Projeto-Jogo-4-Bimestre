@@ -1,0 +1,468 @@
+/* CORES */
+:root {
+  --fundo: #0e0b1f;
+  --superficie: #1a1535;
+  --borda: #2e2660;
+  --texto: #f1eefc;
+  --suave: #b9b3d9;
+  --destaque: #e4ebe6;
+  --roxo: #6c4bff;
+}
+
+/* RESET GERAL */
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+/* ROLAGEM SUAVE */
+html { 
+}
+
+/* CORPO DA PÁGINA */
+body {
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: 'Manrope', Arial, sans-serif;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* FONTE DOS TÍTULOS E DO MENU */
+h1, h2, h3, .botao, .menu a {
+  font-family: 'Chakra Petch', Arial, sans-serif;
+}
+
+/* TOPO */
+.topo {
+  text-align: center;
+  padding: 5px 20px 28px;
+  background: radial-gradient(ellipse at 50% 40%, rgba(108,75,255,.55), transparent 65%);
+}
+
+/* LOGO */
+.logo {
+  width: min(460px, 90%);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: entrada .8s ease-out both;
+}
+
+/* IMAGEM DO LOGO */
+.logo img {
+  width: 100%;
+  height: auto;
+}
+
+/* ANIMAÇÃO DE ENTRADA DO LOGO */
+@keyframes entrada {
+  from { opacity: 0; transform: translateY(-16px) scale(.96); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* MENU */
+.menu {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 12px 16px;
+  background: rgba(14,11,31,.88);
+  backdrop-filter: blur(8px);
+  border-top: 2px solid var(--destaque);
+  border-bottom: 1px solid var(--borda);
+}
+
+/* LINKS DO MENU */
+.menu a {
+  color: var(--suave);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 999px;
+  transition: background .2s, color .2s;
+}
+
+/* LINKS DO MENU AO PASSAR O MOUSE */
+.menu a:hover, 
+.menu a:focus-visible { 
+  color: var(--texto); 
+  background: var(--superficie); 
+}
+
+/* LINK ATIVO DO MENU */
+.menu a.ativo { 
+  color: #1a1200; 
+  background: var(--destaque); 
+}
+
+/* BOTÃO DO GITHUB */
+.btn-github-topo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 6px 16px !important;
+  font-weight: 700;
+  color: #1a1200 !important;
+  background: var(--destaque) !important;
+  border-radius: 999px;
+  transition: transform .15s, background .2s !important;
+}
+
+/* BOTÃO DO GITHUB AO PASSAR O MOUSE */
+.btn-github-topo:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* SEÇÕES */
+section { 
+  padding: 72px 20px; 
+  scroll-margin-top: 56px; 
+  text-align: center;
+}
+
+/* SEÇÕES COM FUNDO ALTERNADO */
+section.alt { 
+  background: var(--superficie); 
+}
+
+/* TÍTULOS DAS SEÇÕES */
+h2 { 
+  font-size: 2rem; 
+  margin-bottom: 16px; 
+}
+
+/* PARÁGRAFOS DAS SEÇÕES */
+section p {
+  max-width: 700px;
+  margin: 0 auto 16px auto;
+  color: var(--suave);
+}
+
+/* SOBRE O JOGO */
+#sobre {
+  text-align: left;
+}
+
+#sobre p, 
+#sobre h2 {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* VÍDEO DE GAMEPLAY */
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 760px;
+  margin: 30px auto 0 auto;
+  aspect-ratio: 16 / 9;
+  background: var(--fundo);
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* PLAYER DO VÍDEO */
+.video-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  content-visibility: auto; /* OTIMIZAÇÃO: ADIA RENDERIZAÇÃO OFFSCREEN DO PLAYER DO YOUTUBE */
+}
+
+/* LISTA DE FASES */
+.fases-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 800px;
+  margin: 40px auto 0 auto;
+}
+
+/* CARD DA FASE */
+.fase-card {
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-left: 6px solid #e4ebe6;
+  border-radius: 8px;
+  padding: 24px 28px;
+  text-align: left;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  content-visibility: auto; /* OTIMIZAÇÃO DE PERFORMANCE DE RENDERIZAÇÃO */
+}
+
+/* CARD DA FASE AO PASSAR O MOUSE */
+.fase-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--destaque);
+  border-left-color: #e4ebe6;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* TÍTULO DA FASE */
+.fase-info h3 {
+  font-family: 'Chakra Petch', Arial, sans-serif;
+  font-size: 1.3rem;
+  color: #e4ebe6;
+  margin-bottom: 6px;
+}
+
+/* TEXTO DA FASE */
+.fase-info p {
+  color: var(--suave);
+  font-size: 1rem;
+  margin: 0;
+  text-align: left;
+}
+
+/* IMAGEM DA FASE (COMEÇA OCULTA) */
+.fase-imagem-container {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, margin-top 0.4s ease-in-out;
+}
+
+/* IMAGEM DA FASE APARECE AO PASSAR O MOUSE */
+.fase-card:hover .fase-imagem-container {
+  max-height: 400px;
+  opacity: 1;
+  margin-top: 16px;
+}
+
+/* IMAGEM DA FASE */
+.fase-img-hover {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  border: 1px solid var(--borda);
+  display: block;
+}
+
+/* GRADE DE FERRAMENTAS */
+.ferramentas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 900px;
+  margin: 40px auto 0 auto;
+}
+
+/* CARD DA FERRAMENTA */
+.ferramenta-card {
+  background: var(--fundo);
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  padding: 24px 20px;
+  text-align: left;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  content-visibility: auto; /* OTIMIZAÇÃO DE PERFORMANCE DE RENDERIZAÇÃO */
+}
+
+/* CARD DA FERRAMENTA AO PASSAR O MOUSE */
+.ferramenta-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--destaque);
+}
+
+/* NOME DA FERRAMENTA */
+.ferramenta-card h3 {
+  font-family: 'Chakra Petch', Arial, sans-serif;
+  font-size: 1.2rem;
+  color: var(--texto);
+  margin-bottom: 8px;
+}
+
+/* DESCRIÇÃO DA FERRAMENTA */
+.ferramenta-card p {
+  color: var(--suave);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* CARROSSEL DA EQUIPE */
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1000px;
+  margin: 40px auto 0 auto;
+  position: relative;
+  height: 420px;
+  user-select: none;
+  contain: layout style paint; /* OTIMIZAÇÃO DE DESEMPENHO ISOLANDO O CARROSSEL */
+}
+
+/* TRILHA DO CARROSSEL */
+.carousel-track {
+  position: relative;
+  width: 100%;
+  max-width: 860px;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* CARD DO CARROSSEL (ESCONDIDO POR PADRÃO) */
+.carousel-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 260px;
+  height: 380px;
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: 16px;
+  padding: 32px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none; 
+  color: inherit;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+              opacity 0.6s ease,
+              box-shadow 0.6s ease,
+              border-color 0.6s ease;
+ 
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.6);
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform, opacity; /* OTIMIZAÇÃO: ACELERAÇÃO POR HARDWARE PARA EVITAR GARGALOS */
+}
+
+/* CARD DO CENTRO */
+.carousel-card.active {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: auto;
+  border-color: var(--destaque);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  z-index: 3;
+}
+
+/* CARD DA ESQUERDA */
+.carousel-card.prev {
+  opacity: 0.45;
+  transform: translate(calc(-50% - 240px), -50%) scale(0.85);
+  pointer-events: auto;
+  z-index: 2;
+  cursor: pointer;
+}
+
+/* CARD DA DIREITA */
+.carousel-card.next {
+  opacity: 0.45;
+  transform: translate(calc(-50% + 240px), -50%) scale(0.85);
+  pointer-events: auto;
+  z-index: 2;
+  cursor: pointer;
+}
+
+/* FOTO DO MEMBRO */
+.carousel-avatar {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 24px auto;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  object-fit: cover; /* A FOTO PREENCHE O AVATAR PERFEITAMENTE SEM FICAR ESTICADO */
+}
+
+/* NOME DO MEMBRO */
+.carousel-card h3 {
+  font-family: 'Chakra Petch', Arial, sans-serif;
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+  color: var(--texto);
+}
+
+/* CARGO DO MEMBRO */
+.carousel-card p {
+  color: var(--suave);
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* BOTÕES DE SETA DO CARROSSEL */
+.carousel-btn {
+  background: var(--fundo);
+  border: 1px solid var(--borda);
+  color: var(--texto);
+  font-size: 1.2rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: all 0.2s;
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+/* BOTÕES DE SETA AO PASSAR O MOUSE */
+.carousel-btn:hover {
+  background: var(--destaque);
+  color: #1a1200;
+  border-color: var(--destaque);
+  transform: scale(1.1);
+}
+
+/* ÍCONE DO BOTÃO DO GITHUB */
+.icone-btn {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+/* RODAPÉ */
+footer { 
+  text-align: center; 
+  padding: 28px; 
+  color: var(--suave); 
+  border-top: 1px solid var(--borda); 
+}
+
+/* RESPONSIVO PARA MOBILE */
+@media (max-width: 800px) {
+  .carousel-wrapper {
+    height: 360px;
+    gap: 5px;
+  }
+  .carousel-card {
+    width: 220px;
+    height: 340px;
+    padding: 24px 16px;
+  }
+  .carousel-card.prev {
+    transform: translate(calc(-50% - 110px), -50%) scale(0.75);
+    opacity: 0.2;
+  }
+  .carousel-card.next {
+    transform: translate(calc(-50% + 110px), -50%) scale(0.75);
+    opacity: 0.2;
+  }
+  .carousel-card.active {
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+  }
+}
