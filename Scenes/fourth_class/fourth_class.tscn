@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://b0fg7ggf7m6tk"]
+
+[ext_resource type="Script" uid="uid://b34bpc545h2aa" path="res://Scenes/fourth_class/script_main4.gd" id="1_dq4mm"]
+[ext_resource type="AudioStream" uid="uid://jkwhrhfpo72l" path="res://Sounds/CLASSES/we_bossa.mp3" id="2_l5dwn"]
+[ext_resource type="Script" uid="uid://dioagfd0j6vfv" path="res://Scenes/fourth_class/script_metronomo4.gd" id="3_l5dwn"]
+
+[node name="Node2D" type="Node2D" unique_id=2058891702]
+
+[node name="Control" type="Control" parent="." unique_id=849744098]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_dq4mm")
+
+[node name="Assign" type="Label" parent="Control" unique_id=1061300901]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 391.0
+offset_right = 342.0
+offset_bottom = 414.0
+text = "wwwwwwwwwwwwwwwwwww"
+
+[node name="Assign2" type="Label" parent="Control" unique_id=1253213848]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 411.0
+offset_right = 342.0
+offset_bottom = 434.0
+text = "wwwwwwwwwwwwwwwwwww"
+
+[node name="Assign3" type="Label" parent="Control" unique_id=874615738]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 434.0
+offset_right = 342.0
+offset_bottom = 457.0
+text = "wwwwwwwwwwwwwwwwwww"
+
+[node name="Assign4" type="Label" parent="Control" unique_id=945657255]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 454.0
+offset_right = 342.0
+offset_bottom = 477.0
+text = "wwwwwwwwwwwwwwwwwww"
+
+[node name="Label" type="Label" parent="Control" unique_id=677369259]
+layout_mode = 0
+offset_left = 215.0
+offset_top = 145.0
+offset_right = 255.0
+offset_bottom = 168.0
+text = "wwwwwwwwwwwww"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=938317089]
+stream = ExtResource("2_l5dwn")
+bus = &"Music"
+script = ExtResource("3_l5dwn")
+
+[connection signal="evento" from="Control" to="AudioStreamPlayer" method="_on_control_evento"]
+[connection signal="tempo" from="AudioStreamPlayer" to="Control" method="_on_audio_stream_player_tempo"]

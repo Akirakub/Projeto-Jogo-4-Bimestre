@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://blosmytjubhvb"]
+
+[ext_resource type="PackedScene" uid="uid://bqdjump2wekrt" path="res://Scenes/Characters_Scenes/Professor.tscn" id="1_8ie8l"]
+[ext_resource type="Texture2D" uid="uid://cueofkb3feg5d" path="res://Assets/Scenery/sc2.png" id="1_hkv5h"]
+[ext_resource type="PackedScene" uid="uid://cmcxya71kr6b1" path="res://Scenes/Menu_Scenes/pause_menu.tscn" id="1_wsas0"]
+[ext_resource type="Script" uid="uid://bc0xs0t4nitti" path="res://Scenes/First_Class/script_main.gd" id="1_xvsws"]
+[ext_resource type="PackedScene" uid="uid://d163mevjqqss6" path="res://Scenes/Characters_Scenes/Luis.tscn" id="2_48sx6"]
+[ext_resource type="PackedScene" uid="uid://b6yg53qfiklfm" path="res://Scenes/First_Class/Barra_de_vida.tscn" id="2_rgbb6"]
+[ext_resource type="FontFile" uid="uid://bnkgjkpf0bwi4" path="res://Assets/Fonts/Text_Font/Some Time Later.otf" id="2_yo32x"]
+[ext_resource type="Script" uid="uid://b36yryc2cb2cy" path="res://Scripts/Logica_game/script_metronomo.gd" id="7_ktgsp"]
+[ext_resource type="AudioStream" uid="uid://cn2ctbhx2yrmk" path="res://Sounds/CLASSES/Le_bossa130.mp3" id="8_yo32x"]
+[ext_resource type="Texture2D" uid="uid://cf8bjxdqa3pv1" path="res://Assets/sc1.png" id="10_yo32x"]
+
+[sub_resource type="Theme" id="Theme_rgbb6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yo32x"]
+font = ExtResource("2_yo32x")
+font_size = 58
+outline_size = 1
+
+[node name="Control" type="Control" unique_id=1175343879]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xvsws")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=390714541]
+
+[node name="Label" type="Label" parent="Node2D" unique_id=431809630]
+top_level = true
+offset_left = 464.0
+offset_top = 250.0
+offset_right = 989.0
+offset_bottom = 463.0
+theme = SubResource("Theme_rgbb6")
+text = "424242434141"
+label_settings = SubResource("LabelSettings_yo32x")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Resp" type="Label" parent="Node2D" unique_id=1945180919]
+offset_left = 464.0
+offset_top = 250.0
+offset_right = 504.0
+offset_bottom = 273.0
+
+[node name="Lousa" type="TextureRect" parent="." unique_id=1979246411]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.48200002
+anchor_right = 0.48200002
+offset_left = -610.96
+offset_top = -259.0
+offset_right = 669.04
+offset_bottom = 731.0
+grow_horizontal = 2
+texture = ExtResource("1_hkv5h")
+
+[node name="CharacterBody2D2" parent="." unique_id=1099341462 instance=ExtResource("2_48sx6")]
+position = Vector2(1126, 385)
+
+[node name="CharacterBody2D" parent="." unique_id=1540156086 instance=ExtResource("1_8ie8l")]
+position = Vector2(194, 368)
+
+[node name="Life" parent="." unique_id=319823806 instance=ExtResource("2_rgbb6")]
+
+[node name="Pause_menu" parent="." unique_id=1177129093 instance=ExtResource("1_wsas0")]
+visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=747118439]
+stream = ExtResource("8_yo32x")
+bus = &"Music"
+script = ExtResource("7_ktgsp")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1967106622]
+layout_mode = 0
+offset_left = 6.0
+offset_right = 1286.0
+offset_bottom = 720.0
+texture = ExtResource("10_yo32x")
+
+[connection signal="evento" from="." to="AudioStreamPlayer" method="_on_control_evento"]
+[connection signal="tempo" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_tempo"]

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bqdjump2wekrt"]
+
+[ext_resource type="Texture2D" uid="uid://b8skqv2wwv6fl" path="res://Assets/Sprites/Characters/profe.png" id="1_aq748"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1540156086]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1763661493]
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_aq748")

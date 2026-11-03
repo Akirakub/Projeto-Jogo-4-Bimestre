@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://d163mevjqqss6"]
+
+[ext_resource type="Texture2D" uid="uid://bibv1620osv4u" path="res://Assets/Sprites/Characters/luis.png" id="1_pb8ob"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1099341462]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=910584025]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_pb8ob")

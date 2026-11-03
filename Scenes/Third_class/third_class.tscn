@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://cua54whq4p1l6"]
+
+[ext_resource type="Script" uid="uid://b370bwwy0t04j" path="res://Scenes/Third_class/script_main3.gd" id="1_s44j1"]
+[ext_resource type="PackedScene" uid="uid://b6yg53qfiklfm" path="res://Scenes/First_Class/Barra_de_vida.tscn" id="2_75odk"]
+[ext_resource type="AudioStream" uid="uid://jkwhrhfpo72l" path="res://Sounds/CLASSES/we_bossa.mp3" id="2_sk3lr"]
+[ext_resource type="Script" uid="uid://8an35xvtxjlu" path="res://Scenes/Third_class/script_metronomo3.gd" id="3_75odk"]
+
+[node name="Third_Class" type="Node2D" unique_id=361200386]
+
+[node name="Control" type="Control" parent="." unique_id=246928244]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_s44j1")
+
+[node name="Label" type="Label" parent="Control" unique_id=673148267]
+layout_mode = 0
+offset_left = 412.0
+offset_top = 312.0
+offset_right = 885.0
+offset_bottom = 391.0
+theme_override_font_sizes/font_size = 58
+text = "wwwwwwwwww"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=532436949]
+stream = ExtResource("2_sk3lr")
+bus = &"Music"
+script = ExtResource("3_75odk")
+
+[node name="Life" parent="." unique_id=319823806 instance=ExtResource("2_75odk")]
+
+[connection signal="evento" from="Control" to="AudioStreamPlayer" method="_on_control_evento"]
+[connection signal="tempo" from="AudioStreamPlayer" to="Control" method="_on_audio_stream_player_tempo"]

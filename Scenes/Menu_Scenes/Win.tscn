@@ -1,0 +1,260 @@
+[gd_scene format=3 uid="uid://5thq0vv4ot4x"]
+
+[ext_resource type="Script" uid="uid://ck3flv0ywqlby" path="res://Scenes/Menu_Scenes/Winning.gd" id="1_neyi0"]
+[ext_resource type="FontFile" uid="uid://v528pqo7qfa4" path="res://Assets/Fonts/Text_Font/Degrassi.otf" id="2_tda5c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g4v7s"]
+
+[sub_resource type="Animation" id="Animation_137u4"]
+resource_name = "Fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.502376),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.7202103, 0.7202103, 0.7202103, 0), Color(18.892157, 18.892157, 18.892157, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.46666667, 0.9034786),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.46666667, 0.9116664),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VBoxContainer2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.46666667, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Grade:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.46666667, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_th505"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VBoxContainer2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Grade:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mbpyl"]
+_data = {
+&"Fade": SubResource("Animation_137u4"),
+&"RESET": SubResource("Animation_th505")
+}
+
+[node name="WIN" type="Control" unique_id=708020453]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_neyi0")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=789811975]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=297936948]
+layout_mode = 0
+offset_left = 330.0
+offset_top = 69.0
+offset_right = 956.0
+offset_bottom = 229.5
+theme_override_colors/font_color = Color(0.26882374, 0.6320149, 3.85046e-07, 1)
+theme_override_fonts/font = ExtResource("2_tda5c")
+theme_override_font_sizes/font_size = 99
+text = "      PAssou"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=544929817]
+layout_mode = 0
+offset_left = 755.0
+offset_top = 417.0
+offset_right = 1237.0
+offset_bottom = 680.0
+theme_override_constants/separation = 6
+
+[node name="P" type="Label" parent="VBoxContainer2" unique_id=571684351]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.7465438, 0.19700578, 1)
+theme_override_fonts/font = ExtResource("2_tda5c")
+theme_override_font_sizes/font_size = 50
+text = "122222"
+
+[node name="G" type="Label" parent="VBoxContainer2" unique_id=551242107]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.51788515, 0.6539722, 0.060160138, 1)
+theme_override_fonts/font = ExtResource("2_tda5c")
+theme_override_font_sizes/font_size = 50
+text = "22"
+
+[node name="M" type="Label" parent="VBoxContainer2" unique_id=1608491232]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.861543, 0.7754978, 1.1551381e-06, 1)
+theme_override_fonts/font = ExtResource("2_tda5c")
+theme_override_font_sizes/font_size = 50
+text = "33"
+
+[node name="W" type="Label" parent="VBoxContainer2" unique_id=1472568695]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.45948678, 0.47591394, 1)
+theme_override_fonts/font = ExtResource("2_tda5c")
+theme_override_font_sizes/font_size = 50
+text = "44"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1039177367]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -605.0
+offset_top = -133.0
+offset_right = -75.0
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=51924053]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_g4v7s")
+
+[node name="Restart" type="Button" parent="VBoxContainer" unique_id=1934705196]
+custom_minimum_size = Vector2(100, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "RESTART"
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer" unique_id=1561611699]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_g4v7s")
+
+[node name="Menu" type="Button" parent="VBoxContainer" unique_id=1084359241]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "MENU"
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer" unique_id=1442389944]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_g4v7s")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=366292752]
+libraries/ = SubResource("AnimationLibrary_mbpyl")
+autoplay = &"Fade"
+
+[node name="Grade" type="Label" parent="." unique_id=903598536]
+layout_mode = 0
+offset_left = 721.0
+offset_top = 227.0
+offset_right = 905.0
+offset_bottom = 336.0
+theme_override_colors/font_color = Color(0.3877347, 0.6126066, 0.9393983, 1)
+theme_override_fonts/font = ExtResource("2_tda5c")
+theme_override_font_sizes/font_size = 90
+text = "s"
+
+[connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="VBoxContainer/Menu" to="." method="_on_menu_pressed"]

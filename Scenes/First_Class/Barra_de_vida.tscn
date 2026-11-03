@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://b6yg53qfiklfm"]
+
+[ext_resource type="Script" uid="uid://b2rjs6j3m34xe" path="res://Scripts/LifeBar + Sinal_global/Life_bar.gd" id="1_v5b16"]
+
+[sub_resource type="Gradient" id="Gradient_qa47y"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g4v7s"]
+gradient = SubResource("Gradient_qa47y")
+width = 430
+
+[sub_resource type="Gradient" id="Gradient_swd8n"]
+colors = PackedColorArray(0, 0, 1, 1, 0, 0, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yf5fn"]
+gradient = SubResource("Gradient_swd8n")
+width = 430
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=319823806]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=411673438]
+anchors_preset = -1
+anchor_left = 0.485
+anchor_right = 0.485
+offset_left = -211.80005
+offset_top = 515.0
+offset_right = 211.19995
+offset_bottom = 583.0
+max_value = 7.0
+value = 7.0
+texture_under = SubResource("GradientTexture2D_g4v7s")
+texture_progress = SubResource("GradientTexture2D_yf5fn")
+script = ExtResource("1_v5b16")
