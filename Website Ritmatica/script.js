@@ -5,34 +5,34 @@ document.addEventListener('DOMContentLoaded', () => {
   //Aqui tem um bloco de colchetes para cada membro que eu coloco os nomes dos 4 tipos de variáveis (nome, cargo, github e avatar) e eles armazenam, respectivamente, o nome do membro, o cargo do membro, o link dele no github e a foto dele
     { 
       nome: "Bruno Lacerda", // Armazena o nome do membro 
-      cargo: "Desenvolvedor WEB e Programação", //Armazena o cargo do membro
+      cargo: "Desenvolvedor WEB", //Armazena o cargo do membro
       github: "https://github.com/brunelaz", //Armazena o link do github do membro 
-      avatar: "https://suap.ifsp.edu.br/media/alunos/fotos/2026/Dcxv7Rm0i99oWJohazfln9r4tiJwroXHx6NhnP1sZ18.jpg" // Armazena a foto/avatar do membro 
+      avatar: "bruno.jpg" // Armazena a foto/avatar do membro 
       //Segue a mesma lógica para os próximos blocos
     }, //Fecha o bloco do primeiro membro
     { //Abre o bloco do próximo membro, e assim segue até o final dos blocos 
       nome: "Fernando Akira", 
-      cargo: "Programador Principal e Gameplay", 
+      cargo: "Programação e Gameplay", 
       github: "https://github.com/Akirakub",
-      avatar: "https://suap.ifsp.edu.br/media/alunos/fotos/2026/smfprrTx_vptIbrIdOaIyufX5LpsuOVy0JWmSfTwey8.jpg"
+      avatar: "fernando.jpg"
     },
     { 
       nome: "Eduardo Feitosa", 
-      cargo: "Músicas, Sprites e Programação", 
+      cargo: "Programação, Músicas, Sprites", 
       github: "https://github.com/3feitosa",
-      avatar: "https://suap.ifsp.edu.br/media/alunos/fotos/2026/qP8gIkDfrE4gCHvlOqnTbHjqo_77Le6gkuUgrz-nm4I.jpg"
+      avatar: "eduardo.jpg"
     },
     { 
       nome: "Arthur Muller", 
       cargo: "Documentação", 
       github: "https://github.com",
-      avatar: "https://suap.ifsp.edu.br/media/alunos/fotos/2026/XdhYPV-6j8H5pnCSkie5rbQLactYjBY4c8cYOM4fZvI.jpg" 
+      avatar: "arthurmuller.jpg" 
     },
     {
       nome: "Arthur Moreira", 
       cargo: "Documentação", 
       github: "https://github.com/ArthurMorSJ",
-      avatar: "https://suap.ifsp.edu.br/media/alunos/fotos/2026/nqvxLfFfxLJ673TMx44S70h-4lxBMOAXe2mIaVkoiS0.jpg" 
+      avatar: "arthurmoreira.jpg" 
     }
     ];
   
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!track || !btnPrev || !btnNext) return; //A função dessa linha é interromper a execução do código JavaScript se os botões de avançar, voltar ou trilha não forem encontrados
   //A lógica dessa condicional funciona assim:
-  // Aqui, o sinal de exclamação (!) significa "NÃO", então é assim: se o if não encontrar o track OU (||) não achou o btnPrev OU (||) não achou o btnNext, ele executa o comando "return" que cancela o código inteiro
+  // Aqui, o sinal de exclamação (!) significa "NÃO", então é assim: se o if não encontrar o track OU (||) não achou o btnPrev OU (||) não achou o btnNext, he executa o comando "return" que cancela o código inteiro
 
   //BLOCO DE CRIAÇÃO DE CARDS
   // Otimização de Performance: Utilização de DocumentFragment para inserir todos os cards de uma só vez, evitando reflows excessivos no navegador
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // track: pega a trilha do carrossel onde os cards estão salvos
   // querySelectorAll('.carousel-card'): busca todos os elementos HTML que possuem a classe CSS 'carousel-card' e guarda todos eles em forma de lista dentro da constante "cards"
 
-  let currentIndex = 0; // Cria uma variável que vai guardar o número da posição (índice) do card que está ativo (aparecendo no centro) no momento
+  let currentIndex = 4; // Cria uma variável que vai guardar o número da posição (índice) do card que está ativo (aparecendo no centro) no momento
   // Explicando parte por parte:
   // let: cria uma variável que pode ter seu valor alterado (diferente do const, porque o número da página atual vai mudar conforme o usuário clicar nos botões)
   // currentIndex: é o nome que demos para a variável que guarda o índice atual, começando no 0 (o primeiro membro da lista)
@@ -169,19 +169,46 @@ document.addEventListener('DOMContentLoaded', () => {
   btnNext.addEventListener('click', nextCard); // Adiciona uma função que recebe o clique no botão de avançar (seta para a direita). Quando o usuário clica, ele roda a função "nextCard"
   btnPrev.addEventListener('click', prevCard); // Adiciona uma função que recebe o clique no botão de voltar (seta para a esquerda). Quando o usuário clica, ele roda a função "prevCard"
 
-  // BLOCO DE CLIQUE NOS CARDS LATERAIS
-  cards.forEach((card) => { // Passa por cada card individualmente para verificar cliques neles
-    card.addEventListener('click', (e) => { // Adiciona um código para perceber o clique no card
-      if (card.classList.contains('prev')) { // Verifica se o usuário clicou no card que está do lado esquerdo (classe 'prev')
-        e.preventDefault(); // Impede que o link abra imediatamente para que o usuário possa primeiro trazer o card para o centro
-        prevCard(); // Roda a função de voltar para centralizar esse card
-      } else if (card.classList.contains('next')) { // Verifica se o usuário clicou no card que está do lado direito (classe 'next')
-        e.preventDefault(); // Impede que o link abra imediatamente
-        nextCard(); // Roda a função de avançar para centralizar esse card
+  // CLIQUE NOS CARDS LATERAIS PARA NAVEGAR DIRETAMENTE
+  cards.forEach((card) => {
+    card.addEventListener('click', (e) => {
+      if (card.classList.contains('prev')) {
+        e.preventDefault(); // Evita abrir o link se for o card lateral, apenas navega o carrossel
+        prevCard();
+      } else if (card.classList.contains('next')) {
+        e.preventDefault();
+        nextCard();
       }
     });
   });
 
-  // BLOCO DE INICIALIZAÇÃO
-  updateCarousel(); // Executa a função de atualizar o carrossel logo na primeira vez que a página abre, para deixar o primeiro card centralizado certinho
+  updateCarousel(); // Executa a função de atualização uma vez logo no começo para alinhar os cards na posição inicial correta
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("modal-imagem");
+  const imgAmpliada = document.getElementById("img-ampliada");
+  const fechar = document.querySelector(".fechar-modal");
+  const imagensExpandiveis = document.querySelectorAll(".img-expandivel");
+
+  imagensExpandiveis.forEach(img => {
+    img.addEventListener("click", () => {
+      modal.style.display = "flex";
+      imgAmpliada.src = img.src;
+    });
+  });
+
+  if (fechar) {
+    fechar.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+  }
+
+  if (modal) {
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  }
 });
