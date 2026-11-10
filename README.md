@@ -1,4 +1,7 @@
-# 🎵 Ritmatica
+<center>
+   <img src="<img width="582" height="260" alt="Logo ritimatica" src="https://github.com/user-attachments/assets/2be88ee4-72ca-41ad-adbe-b3cc0ea77b8c" />
+>
+</center>
 
 > Um jogo educacional que junta o ritmo musical com problemas matemáticos.
 
