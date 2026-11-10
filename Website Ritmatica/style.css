@@ -55,9 +55,8 @@ h1, h2, h3, .botao, .menu a {
 /* IMAGEM DO LOGO */
 .logo img {
   width: 100%;
-  height: auto;
+  filter: drop-shadow(3px 3px 4px rgba(0, 0, 0, 0.6));
 }
-
 /* ANIMAÇÃO DE ENTRADA DO LOGO */
 @keyframes entrada {
   from { opacity: 0; transform: translateY(-16px) scale(.96); }
@@ -269,10 +268,10 @@ section p {
 
 .storyboard-item img {
   width: 100%;
-  height: auto;
-  display: block;
-  cursor: pointer;
-  transition: transform 0.3s ease;
+  height: 250px;
+  object-fit: contain;
+  background-color: #111;
+
 }
 
 .storyboard-item img:hover {
