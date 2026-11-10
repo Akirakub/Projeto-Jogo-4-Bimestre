@@ -1,6 +1,6 @@
 <center>
   <img width="582" height="260" alt="Image" src="https://github.com/user-attachments/assets/64d5d39d-1f28-418c-a7fc-1631ddcd4652" />
->
+
 </center>
 
 > Um jogo educacional que junta o ritmo musical com problemas matemáticos.
