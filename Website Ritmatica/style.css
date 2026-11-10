@@ -1,12 +1,12 @@
 /* CORES */
 :root {
-  --fundo: #5E5653;            /* Cinza-escuro / Grafite */
-  --superficie: #7B7F8A;       /* Cinza-médio */
-  --borda: #AB978C;            /* Bege / Bege-acinzentado */
-  --texto: #E9E6E7;            /* Cinza-claro / Off-white */
-  --suave: #E9E6E7;            /* Cinza-claro / Off-white (para manter boa leitura secundária) */
-  --destaque: #6B7C98;         /* Azul-acinzentado / Slate blue */
-  --roxo: #6B7C98;             /* Adaptado para combinar com a nova paleta */
+  --fundo: #5E5653;            /* Cinza-escuro */
+  --superficie: #7B7F8A;       /* Cinza*/
+  --borda: #AB978C;            /* Bege */
+  --texto: #E9E6E7;            /* Cinza*/
+  --suave: #E9E6E7;            /* Cinza*/
+  --destaque: #6B7C98;         /* Azul*/
+  --roxo: #6B7C98;            
 }
 
 /* RESET GERAL */
