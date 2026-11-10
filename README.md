@@ -6,7 +6,7 @@
 
 ## Sobre o Projeto
 
-**Ritmatica** é um jogo desenvolvido em **Godot Engine**, nele o jogador precisa resolver operações, expressões e sequências matemáticas no tempo certo da música. O jogador precisa ter ritmo e precisão, e também tem que acompanhar o metrônomo para acertar as contas, acumular pontos e manter o combo ativo.
+**Ritmatica** é um jogo desenvolvido no **Godot Engine**, nele o jogador precisa resolver operações, expressões e sequências matemáticas no tempo certo da música. O jogador precisa ter ritmo e precisão, e também tem que acompanhar o metrônomo para acertar as contas, acumular pontos e manter o combo ativo.
 
 ---
 
@@ -35,5 +35,4 @@
 Você pode jogar o *Ritmatica* jogando diretamente pelo navegador.
 
 Pela exportação HTML5 do Godot, você pode jogar *Ritmatica* direto no navegador! 
-* [Clique aqui para jogar](#) *(https://akirakub.itch.io/ritimatica
-)*
+* [Clique aqui para jogar]((https://akirakub.itch.io/ritimatica)) 
