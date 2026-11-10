@@ -40,3 +40,5 @@ Você pode jogar o *Ritmatica* jogando diretamente pelo navegador.
 Pela exportação HTML5 do Godot, você pode jogar *Ritmatica* direto no navegador! 
 * [Clique aqui para jogar](#) *(https://akirakub.itch.io/ritimatica
 )*
+--------------------------------------------------------------------------------
+© 2026 Ritmatica. Todos os direitos reservados. / All rights reserved.
