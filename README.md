@@ -1,5 +1,5 @@
 <center>
-   <img src="<img width="582" height="260" alt="Logo ritimatica" src="https://github.com/user-attachments/assets/2be88ee4-72ca-41ad-adbe-b3cc0ea77b8c" />
+  <img width="582" height="260" alt="Image" src="https://github.com/user-attachments/assets/64d5d39d-1f28-418c-a7fc-1631ddcd4652" />
 >
 </center>
 
