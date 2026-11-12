@@ -1,9 +1,75 @@
 [gd_scene format=3 uid="uid://d163mevjqqss6"]
 
-[ext_resource type="Texture2D" uid="uid://bibv1620osv4u" path="res://Assets/Sprites/Characters/luis.png" id="1_pb8ob"]
+[ext_resource type="Texture2D" uid="uid://dibv3kbslrs36" path="res://Assets/Sprites/Characters/Luis Idle.png" id="2_wi1ce"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pb8ob"]
+atlas = ExtResource("2_wi1ce")
+region = Rect2(0, 0, 278, 646)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wi1ce"]
+atlas = ExtResource("2_wi1ce")
+region = Rect2(278, 0, 278, 646)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8bt2"]
+atlas = ExtResource("2_wi1ce")
+region = Rect2(556, 0, 278, 646)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pygfp"]
+atlas = ExtResource("2_wi1ce")
+region = Rect2(834, 0, 278, 646)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73cqb"]
+atlas = ExtResource("2_wi1ce")
+region = Rect2(1112, 0, 278, 646)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3c2a"]
+atlas = ExtResource("2_wi1ce")
+region = Rect2(1390, 0, 278, 646)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xt0e2"]
+atlas = ExtResource("2_wi1ce")
+region = Rect2(1668, 0, 278, 646)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8qvg"]
+atlas = ExtResource("2_wi1ce")
+region = Rect2(1946, 0, 278, 646)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_57qmd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pb8ob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wi1ce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8bt2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pygfp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73cqb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3c2a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xt0e2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8qvg")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 10.0
+}]
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1099341462]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=910584025]
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("1_pb8ob")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=462828252]
+sprite_frames = SubResource("SpriteFrames_57qmd")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.7211492

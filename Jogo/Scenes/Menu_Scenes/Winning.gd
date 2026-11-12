@@ -4,7 +4,11 @@ extends Control
 @onready var G = $VBoxContainer2/G
 @onready var M = $VBoxContainer2/M
 @onready var W = $VBoxContainer2/W
+@onready var ComboMax = $VBoxContainer2/ComboMax
 @onready var Nota = $Grade
+@onready var Restart = $Restartbutton
+@onready var Menu = $Mainmenubutton
+@onready var Autoplay = $AudioStreamPlayer2D
 
 var p = SinalGlobal.p1
 var g = SinalGlobal.g1
@@ -17,12 +21,17 @@ func _ready() -> void:
 	G.text=str("Greats = ", SinalGlobal.g1)
 	M.text=str("OK = ", SinalGlobal.m1)
 	W.text=str("Wrongs = ", SinalGlobal.w1)
+	ComboMax.text = str("Combo máx = ", SinalGlobal.combo_max1)
 	########################################
 	
 	var precisao_final = _precision()
 	var rank_final = _obter_rank(precisao_final,w)
 	
 	Nota.text = str( rank_final, "(", snappedf(precisao_final, 0.01), "%)")
+	_fade_in_botoes()
+	
+	await get_tree().create_timer(1.0).timeout
+	Autoplay.play()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _precision() -> float:
@@ -51,13 +60,29 @@ func _obter_rank(precisao: float, wrongs: int) -> String:
 	else:
 		return "D"	
 
+##Funcao para fazer um fade in nos botoes
+func _fade_in_botoes() -> void:
+	Restart.modulate.a = 0.0
+	Menu.modulate.a = 0.0
 
-func _process(delta: float) -> void:
-	pass
+	Restart.disabled = true
+	Menu.disabled = true
 
-func _on_restart_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/First_Class/First_Classl.tscn")
+	var tween = create_tween()
+	tween.set_parallel(true)
 
+	tween.tween_property(Restart, "modulate:a", 1.0, 1.5)
+	tween.tween_property(Menu, "modulate:a", 1.0, 1.5)
 
-func _on_menu_pressed() -> void:
+	await tween.finished
+
+	Restart.disabled = false
+	Menu.disabled = false
+	
+	
+
+func _on_mainmenubutton_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Menu_Scenes/Main_Menu.tscn")
+
+func _on_restartbutton_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/First_Class/First_Classl.tscn")

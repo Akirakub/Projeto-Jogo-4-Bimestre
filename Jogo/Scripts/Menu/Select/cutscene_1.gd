@@ -2,9 +2,8 @@ extends TextureRect
 
 var i:int=0
 @export var image: Array[Texture2D]=[ 
-	preload("res://Assets/Scenery/sc1.png"), 
-	preload("res://Assets/Scenery/sc2.png"),  
-	preload("res://Assets/Sprites/Random/Números/Sete.png")    
+	preload("res://Assets/Scenery/Tutorial.png"), 
+	preload("res://Assets/Scenery/PRIMEIRO ATO.png"),    
 ]						
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

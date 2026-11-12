@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://dyp6mqluxn3dd"]
+
+[ext_resource type="PackedScene" uid="uid://cxrbbbe3w3cbq" path="res://Scenes/Second_Class/Second_Class.tscn" id="1_3q411"]
+[ext_resource type="Texture2D" uid="uid://c1h5tavj50oh5" path="res://Assets/Scenery/sala.png" id="1_mrfgn"]
+[ext_resource type="PackedScene" uid="uid://d163mevjqqss6" path="res://Scenes/Characters_Scenes/Luis.tscn" id="3_hffli"]
+[ext_resource type="PackedScene" uid="uid://bqdjump2wekrt" path="res://Scenes/Characters_Scenes/Professor.tscn" id="4_1fc8v"]
+[ext_resource type="PackedScene" uid="uid://cmcxya71kr6b1" path="res://Scenes/Menu_Scenes/pause_menu.tscn" id="5_32x04"]
+[ext_resource type="Texture2D" uid="uid://1tjytuvp2e82" path="res://Assets/Sprites/Characters/icon/frames_90/frames_90/professor_frame1.png" id="6_32x04"]
+[ext_resource type="Script" uid="uid://bfeh28leiywqi" path="res://Scenes/Second_Class/icon_professor2.gd" id="7_6a6un"]
+[ext_resource type="Texture2D" uid="uid://bb7y02rr8pmaw" path="res://Assets/Sprites/Characters/icon/frames_90/frames_90/aluno_frame3.png" id="8_hy4ks"]
+[ext_resource type="Script" uid="uid://cy2mgdb8q1fe" path="res://Scenes/Second_Class/Aluno_icon2.gd" id="9_4bxek"]
+[ext_resource type="Script" uid="uid://btp5ncsbesi4h" path="res://Scenes/Second_Class/cronometro2.gd" id="10_hy4ks"]
+[ext_resource type="FontFile" uid="uid://bnkgjkpf0bwi4" path="res://Assets/Fonts/Text_Font/Some Time Later.otf" id="11_4bxek"]
+[ext_resource type="Script" uid="uid://cecohonli8ggp" path="res://Scenes/First_Class/teste_cam.gd" id="12_4bxek"]
+[ext_resource type="Script" uid="uid://kiokbhslhc44" path="res://Scenes/First_Class/TimingBar.gd" id="13_ieulu"]
+[ext_resource type="Texture2D" uid="uid://66eywjitekpm" path="res://Assets/Sprites/timingbar.png" id="14_7t7yn"]
+[ext_resource type="Texture2D" uid="uid://bbnrim3kawths" path="res://Assets/Sprites/marcabranca.png" id="15_v8fcd"]
+
+[node name="Control" type="Control" unique_id=1219842345]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1337237425]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 1282.0
+offset_bottom = 722.0
+texture = ExtResource("1_mrfgn")
+
+[node name="CharacterBody2D" parent="." unique_id=1099341462 instance=ExtResource("3_hffli")]
+position = Vector2(1155, 405)
+
+[node name="CharacterBody2D2" parent="." unique_id=1540156086 instance=ExtResource("4_1fc8v")]
+position = Vector2(138, 394)
+
+[node name="Pause_menu" parent="." unique_id=1177129093 instance=ExtResource("5_32x04")]
+visible = false
+
+[node name="Node2D" parent="." unique_id=1365600344 instance=ExtResource("1_3q411")]
+position = Vector2(3, 4)
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=751852451]
+layout_mode = 0
+offset_left = 251.0
+offset_top = 488.0
+offset_right = 341.0
+offset_bottom = 578.0
+texture = ExtResource("6_32x04")
+script = ExtResource("7_6a6un")
+
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=47286645]
+layout_mode = 0
+offset_left = 935.0
+offset_top = 498.0
+offset_right = 1025.0
+offset_bottom = 588.0
+texture = ExtResource("8_hy4ks")
+script = ExtResource("9_4bxek")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=165881753]
+script = ExtResource("10_hy4ks")
+
+[node name="Cronometro" type="Label" parent="CanvasLayer" unique_id=222163881]
+offset_left = 1132.0
+offset_top = 15.0
+offset_right = 1172.0
+offset_bottom = 84.0
+theme_override_colors/font_color = Color(0.5409905, 0.5409905, 0.5409905, 1)
+theme_override_fonts/font = ExtResource("11_4bxek")
+theme_override_font_sizes/font_size = 55
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1278641882]
+position = Vector2(643, 358)
+script = ExtResource("12_4bxek")
+
+[node name="BarraPerfect" type="Node2D" parent="." unique_id=1054237082]
+modulate = Color(0.851769, 0.8517689, 0.85176885, 1)
+script = ExtResource("13_ieulu")
+
+[node name="Background" type="Sprite2D" parent="BarraPerfect" unique_id=1381225395]
+position = Vector2(650, 147.25)
+scale = Vector2(1.2480469, 1.0116279)
+texture = ExtResource("14_7t7yn")
+
+[node name="Pointer" type="Sprite2D" parent="BarraPerfect" unique_id=520101662]
+position = Vector2(412, 147)
+scale = Vector2(1, 0.996124)
+texture = ExtResource("15_v8fcd")
+
+[node name="StartMarker" type="Marker2D" parent="BarraPerfect" unique_id=966649404]
+position = Vector2(408, 147)
+
+[node name="EndMarker" type="Marker2D" parent="BarraPerfect" unique_id=1089501895]
+position = Vector2(840, 145)
+
+[node name="SafeStartMarker" type="Marker2D" parent="BarraPerfect" unique_id=1427749810]
+position = Vector2(526, 146)
+
+[node name="SafeEndMarker" type="Marker2D" parent="BarraPerfect" unique_id=1807134368]
+position = Vector2(707, 147)

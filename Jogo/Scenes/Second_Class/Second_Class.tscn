@@ -1,54 +1,34 @@
 [gd_scene format=3 uid="uid://cxrbbbe3w3cbq"]
 
 [ext_resource type="Script" uid="uid://8e1wqg8tecj2" path="res://Scenes/Second_Class/script_main2.gd" id="1_j4q4v"]
+[ext_resource type="FontFile" uid="uid://binttr1kyhxus" path="res://Assets/Fonts/Text_Font/Reanim.ttf" id="2_1j3jv"]
+[ext_resource type="FontFile" uid="uid://bnkgjkpf0bwi4" path="res://Assets/Fonts/Text_Font/Some Time Later.otf" id="2_jiw5g"]
 [ext_resource type="AudioStream" uid="uid://jkwhrhfpo72l" path="res://Sounds/CLASSES/we_bossa.mp3" id="2_nj8f2"]
 [ext_resource type="Script" uid="uid://t4tb5q14qe67" path="res://Scenes/Second_Class/script_metronomo2.gd" id="3_nj8f2"]
-[ext_resource type="PackedScene" uid="uid://b6yg53qfiklfm" path="res://Scenes/First_Class/Barra_de_vida.tscn" id="4_dfcxv"]
+[ext_resource type="PackedScene" uid="uid://704s8dmq8gde" path="res://Scenes/Second_Class/Barra_de_vida2.tscn" id="5_jiw5g"]
 
 [node name="Node2D" type="Node2D" unique_id=1365600344]
 
 [node name="Control" type="Control" parent="." unique_id=1519496794]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 933.0
-offset_bottom = 422.0
+offset_left = 19.0
+offset_top = -16.0
+offset_right = 952.0
+offset_bottom = 406.0
 script = ExtResource("1_j4q4v")
 
 [node name="Node2D" type="Node2D" parent="Control" unique_id=1371679795]
 
-[node name="Label" type="Label" parent="Control/Node2D" unique_id=98497023]
-offset_left = 188.0
-offset_top = 376.0
-offset_right = 228.0
-offset_bottom = 399.0
-text = "1"
-
-[node name="Label2" type="Label" parent="Control/Node2D" unique_id=1509033102]
-offset_left = 255.0
-offset_top = 375.0
-offset_right = 295.0
-offset_bottom = 398.0
-text = "1"
-
-[node name="Label3" type="Label" parent="Control/Node2D" unique_id=694443397]
-offset_left = 295.0
-offset_top = 378.0
-offset_right = 335.0
-offset_bottom = 401.0
-text = "1"
-
-[node name="Label4" type="Label" parent="Control/Node2D" unique_id=325616253]
-offset_left = 335.0
-offset_top = 382.0
-offset_right = 375.0
-offset_bottom = 405.0
-text = "1"
-
-[node name="Resp" type="Label" parent="Control/Node2D" unique_id=1454857720]
-offset_left = 620.0
-offset_top = 209.0
-offset_right = 662.0
-offset_bottom = 258.0
+[node name="Cont" type="Label" parent="Control/Node2D" unique_id=1454857720]
+unique_name_in_owner = true
+offset_left = 478.0
+offset_top = 265.0
+offset_right = 664.0
+offset_bottom = 408.0
+theme_override_colors/font_color = Color(0.56973624, 0, 0.23567736, 1)
+theme_override_fonts/font = ExtResource("2_1j3jv")
+theme_override_font_sizes/font_size = 80
 text = "input
 "
 
@@ -57,7 +37,27 @@ stream = ExtResource("2_nj8f2")
 bus = &"Music"
 script = ExtResource("3_nj8f2")
 
-[node name="Life" parent="." unique_id=319823806 instance=ExtResource("4_dfcxv")]
+[node name="CanvasLayer" parent="." unique_id=319823806 instance=ExtResource("5_jiw5g")]
 
+[node name="Fala" type="Label" parent="." unique_id=2113007707]
+unique_name_in_owner = true
+offset_left = 522.0
+offset_top = 43.0
+offset_right = 876.0
+offset_bottom = 163.0
+theme_override_fonts/font = ExtResource("2_jiw5g")
+theme_override_font_sizes/font_size = 70
+
+[node name="Combo" type="Label" parent="." unique_id=528716891]
+unique_name_in_owner = true
+offset_left = 913.0
+offset_top = 103.0
+offset_right = 1041.0
+offset_bottom = 193.0
+theme_override_colors/font_color = Color(0.38964415, 0.0015547195, 0.634004, 1)
+theme_override_fonts/font = ExtResource("2_jiw5g")
+theme_override_font_sizes/font_size = 90
+
+[connection signal="errou" from="Control" to="AudioStreamPlayer" method="_on_control_errou"]
 [connection signal="evento" from="Control" to="AudioStreamPlayer" method="_on_control_evento"]
 [connection signal="tempo" from="AudioStreamPlayer" to="Control" method="_on_audio_stream_player_tempo"]

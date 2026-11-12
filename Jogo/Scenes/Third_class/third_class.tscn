@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://cua54whq4p1l6"]
 
 [ext_resource type="Script" uid="uid://b370bwwy0t04j" path="res://Scenes/Third_class/script_main3.gd" id="1_s44j1"]
-[ext_resource type="PackedScene" uid="uid://b6yg53qfiklfm" path="res://Scenes/First_Class/Barra_de_vida.tscn" id="2_75odk"]
-[ext_resource type="AudioStream" uid="uid://jkwhrhfpo72l" path="res://Sounds/CLASSES/we_bossa.mp3" id="2_sk3lr"]
+[ext_resource type="FontFile" uid="uid://bnkgjkpf0bwi4" path="res://Assets/Fonts/Text_Font/Some Time Later.otf" id="2_kecdj"]
+[ext_resource type="FontFile" uid="uid://binttr1kyhxus" path="res://Assets/Fonts/Text_Font/Reanim.ttf" id="2_nb8wd"]
 [ext_resource type="Script" uid="uid://8an35xvtxjlu" path="res://Scenes/Third_class/script_metronomo3.gd" id="3_75odk"]
+[ext_resource type="AudioStream" uid="uid://dc4irnmcevgjp" path="res://Sounds/CLASSES/El Ritimatica.mp3" id="3_nb8wd"]
+[ext_resource type="PackedScene" uid="uid://hisqfqmsg3sr" path="res://Scenes/Third_class/Barra_de_vida3.tscn" id="5_kecdj"]
 
 [node name="Third_Class" type="Node2D" unique_id=361200386]
 
@@ -14,21 +16,43 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_s44j1")
 
-[node name="Label" type="Label" parent="Control" unique_id=673148267]
+[node name="Cont" type="Label" parent="Control" unique_id=673148267]
+unique_name_in_owner = true
 layout_mode = 0
-offset_left = 412.0
-offset_top = 312.0
-offset_right = 885.0
-offset_bottom = 391.0
-theme_override_font_sizes/font_size = 58
-text = "wwwwwwwwww"
+offset_left = 415.0
+offset_top = 282.0
+offset_right = 888.0
+offset_bottom = 361.0
+theme_override_colors/font_color = Color(9.818673e-06, 0.7217418, 0.9660743, 1)
+theme_override_fonts/font = ExtResource("2_nb8wd")
+theme_override_font_sizes/font_size = 80
+text = "www"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=532436949]
-stream = ExtResource("2_sk3lr")
+stream = ExtResource("3_nb8wd")
 bus = &"Music"
 script = ExtResource("3_75odk")
 
-[node name="Life" parent="." unique_id=319823806 instance=ExtResource("2_75odk")]
+[node name="CanvasLayer" parent="." unique_id=319823806 instance=ExtResource("5_kecdj")]
+
+[node name="Fala" type="Label" parent="." unique_id=1409605209]
+unique_name_in_owner = true
+offset_left = 471.0
+offset_top = 87.0
+offset_right = 760.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("2_kecdj")
+theme_override_font_sizes/font_size = 70
+
+[node name="Combo" type="Label" parent="." unique_id=657422861]
+unique_name_in_owner = true
+offset_left = 953.0
+offset_top = 95.0
+offset_right = 1048.0
+offset_bottom = 168.0
+theme_override_colors/font_color = Color(0.41857666, 0.0016077596, 0.99380225, 1)
+theme_override_fonts/font = ExtResource("2_kecdj")
+theme_override_font_sizes/font_size = 90
 
 [connection signal="evento" from="Control" to="AudioStreamPlayer" method="_on_control_evento"]
 [connection signal="tempo" from="AudioStreamPlayer" to="Control" method="_on_audio_stream_player_tempo"]

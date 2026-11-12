@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cpxnvthjhdj7q" path="res://Scripts/Menu/Pause/pause_menu.gd" id="1_bj3ou"]
 [ext_resource type="Script" uid="uid://uviitya35vsk" path="res://Scripts/Sliders/Pause_slider.gd" id="2_pi7dy"]
+[ext_resource type="Texture2D" uid="uid://cux6tpw683sa6" path="res://Assets/Sprites/sticker.png" id="3_nulec"]
+[ext_resource type="Texture2D" uid="uid://f1oxbm45r2ci" path="res://Assets/Sprites/Random/Easteregg.png" id="4_opdxe"]
 
 [node name="Pause_menu" type="CanvasLayer" unique_id=1177129093]
 process_mode = 3
@@ -65,6 +67,20 @@ max_value = 1.0
 step = 0.001
 script = ExtResource("2_pi7dy")
 bus_Master = "Master"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=296110125]
+offset_left = 952.0
+offset_top = 139.0
+offset_right = 1056.0
+offset_bottom = 249.0
+texture = ExtResource("3_nulec")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=914985160]
+offset_left = 225.0
+offset_top = 122.0
+offset_right = 359.0
+offset_bottom = 253.0
+texture = ExtResource("4_opdxe")
 
 [connection signal="pressed" from="Control/VBoxContainer/Resume" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/Main_Menu" to="." method="_on_main_menu_pressed"]

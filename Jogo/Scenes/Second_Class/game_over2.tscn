@@ -1,0 +1,154 @@
+[gd_scene format=3 uid="uid://cfha12ceadrf3"]
+
+[ext_resource type="Script" uid="uid://og6lur4iey38" path="res://Scenes/Second_Class/game_over_2.gd" id="1_5pb2q"]
+[ext_resource type="Texture2D" uid="uid://b031qbtv5o8k4" path="res://Assets/Sprites/Background_DeadScreen.jpg" id="2_g5u0k"]
+[ext_resource type="Texture2D" uid="uid://dcum4nfncil4s" path="res://Assets/Sprites/REPROVADO.png" id="2_nyf67"]
+[ext_resource type="Texture2D" uid="uid://fv2x1eb47ktk" path="res://Assets/Sprites/restartbutton.png" id="3_ss3xy"]
+[ext_resource type="Texture2D" uid="uid://h06tu40v3r4t" path="res://Assets/Sprites/mainmenubutton.png" id="4_w08cx"]
+[ext_resource type="Texture2D" uid="uid://ca0uumshbspye" path="res://Assets/Sprites/quitgamebutton.png" id="5_53rvi"]
+[ext_resource type="AudioStream" uid="uid://b5fk8iwqn8t60" path="res://Sounds/BG/gameover.mp3" id="7_34esr"]
+
+[sub_resource type="Animation" id="Animation_137u4"]
+resource_name = "Fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.502376),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.7202103, 0.7202103, 0.7202103, 0), Color(18.892157, 18.892157, 18.892157, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.502376, 0.9034786),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_th505"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mbpyl"]
+_data = {
+&"Fade": SubResource("Animation_137u4"),
+&"RESET": SubResource("Animation_th505")
+}
+
+[node name="GameOver" type="Control" unique_id=708020453]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5pb2q")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=789811975]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1461582472]
+position = Vector2(640, 360)
+scale = Vector2(0.9370425, 0.9375)
+texture = ExtResource("2_g5u0k")
+
+[node name="titulo" type="Sprite2D" parent="." unique_id=1168187536]
+position = Vector2(640, 360)
+texture = ExtResource("2_nyf67")
+
+[node name="Restartbutton" type="TextureButton" parent="." unique_id=1007673484]
+layout_mode = 0
+offset_left = 481.0
+offset_top = 221.0
+offset_right = 799.0
+offset_bottom = 329.0
+offset_transform_position = Vector2(640, 0)
+texture_normal = ExtResource("3_ss3xy")
+
+[node name="Mainmenubutton" type="TextureButton" parent="." unique_id=198295516]
+layout_mode = 0
+offset_left = 481.0
+offset_top = 358.0
+offset_right = 799.0
+offset_bottom = 466.0
+texture_normal = ExtResource("4_w08cx")
+
+[node name="Quitgamebutton" type="TextureButton" parent="." unique_id=905545150]
+layout_mode = 0
+offset_left = 481.0
+offset_top = 499.0
+offset_right = 799.0
+offset_bottom = 607.0
+texture_normal = ExtResource("5_53rvi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1039177367]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -637.0
+offset_top = 233.0
+offset_right = 489.0
+offset_bottom = 475.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=366292752]
+libraries/ = SubResource("AnimationLibrary_mbpyl")
+autoplay = &"Fade"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2145471845]
+stream = ExtResource("7_34esr")
+autoplay = true
+
+[connection signal="mouse_entered" from="Restartbutton" to="." method="_on_restartbutton_mouse_entered"]
+[connection signal="mouse_exited" from="Restartbutton" to="." method="_on_restartbutton_mouse_exited"]
+[connection signal="pressed" from="Restartbutton" to="." method="_on_restartbutton_pressed"]
+[connection signal="mouse_entered" from="Mainmenubutton" to="." method="_on_mainmenubutton_mouse_entered"]
+[connection signal="mouse_exited" from="Mainmenubutton" to="." method="_on_mainmenubutton_mouse_exited"]
+[connection signal="pressed" from="Mainmenubutton" to="." method="_on_mainmenubutton_pressed"]
+[connection signal="mouse_entered" from="Quitgamebutton" to="." method="_on_quitgamebutton_mouse_entered"]
+[connection signal="mouse_exited" from="Quitgamebutton" to="." method="_on_quitgamebutton_mouse_exited"]
+[connection signal="pressed" from="Quitgamebutton" to="." method="_on_quitgamebutton_pressed"]

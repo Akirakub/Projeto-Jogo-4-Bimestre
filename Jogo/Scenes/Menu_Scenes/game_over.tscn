@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://mitlitjw3ere"]
 
 [ext_resource type="Script" uid="uid://culaxowo88tut" path="res://Scenes/Menu_Scenes/game_over.gd" id="1_137u4"]
-[ext_resource type="FontFile" uid="uid://v528pqo7qfa4" path="res://Assets/Fonts/Text_Font/Degrassi.otf" id="1_rfu36"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g4v7s"]
+[ext_resource type="Texture2D" uid="uid://b031qbtv5o8k4" path="res://Assets/Sprites/Background_DeadScreen.jpg" id="2_rasm2"]
+[ext_resource type="Texture2D" uid="uid://fv2x1eb47ktk" path="res://Assets/Sprites/restartbutton.png" id="3_1hsaa"]
+[ext_resource type="Texture2D" uid="uid://dcum4nfncil4s" path="res://Assets/Sprites/REPROVADO.png" id="3_th505"]
+[ext_resource type="Texture2D" uid="uid://h06tu40v3r4t" path="res://Assets/Sprites/mainmenubutton.png" id="4_rasm2"]
+[ext_resource type="Texture2D" uid="uid://ca0uumshbspye" path="res://Assets/Sprites/quitgamebutton.png" id="5_puoxq"]
+[ext_resource type="AudioStream" uid="uid://b5fk8iwqn8t60" path="res://Sounds/BG/gameover.mp3" id="7_puoxq"]
 
 [sub_resource type="Animation" id="Animation_137u4"]
 resource_name = "Fade"
@@ -34,11 +37,35 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Label:modulate")
+tracks/2/path = NodePath("Restartbutton:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.5023468, 0.9116664),
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Mainmenubutton:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.033333335, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(18.892157, 18.892157, 18.892157, 0), Color(18.892157, 18.892157, 18.892157, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Quitgamebutton:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -73,10 +100,34 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Label:modulate")
+tracks/2/path = NodePath("Restartbutton:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Mainmenubutton:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(18.892157, 18.892157, 18.892157, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Quitgamebutton:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -107,16 +158,40 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="." unique_id=297936948]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=273329538]
+position = Vector2(640, 360)
+scale = Vector2(0.9370425, 0.9375)
+texture = ExtResource("2_rasm2")
+
+[node name="titulo" type="Sprite2D" parent="." unique_id=1168187536]
+position = Vector2(640, 360)
+texture = ExtResource("3_th505")
+
+[node name="Restartbutton" type="TextureButton" parent="." unique_id=1007673484]
 layout_mode = 0
-offset_left = 307.0
-offset_top = 75.0
-offset_right = 933.0
-offset_bottom = 235.5
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_rfu36")
-theme_override_font_sizes/font_size = 99
-text = "   REPROVADO"
+offset_left = 481.0
+offset_top = 221.0
+offset_right = 799.0
+offset_bottom = 329.0
+offset_transform_position = Vector2(640, 0)
+texture_normal = ExtResource("3_1hsaa")
+
+[node name="Mainmenubutton" type="TextureButton" parent="." unique_id=198295516]
+modulate = Color(18.892157, 18.892157, 18.892157, 1)
+layout_mode = 0
+offset_left = 481.0
+offset_top = 358.0
+offset_right = 799.0
+offset_bottom = 466.0
+texture_normal = ExtResource("4_rasm2")
+
+[node name="Quitgamebutton" type="TextureButton" parent="." unique_id=905545150]
+layout_mode = 0
+offset_left = 481.0
+offset_top = 499.0
+offset_right = 799.0
+offset_bottom = 607.0
+texture_normal = ExtResource("5_puoxq")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1039177367]
 layout_mode = 1
@@ -125,48 +200,28 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -256.0
-offset_top = -113.0
-offset_right = 274.0
-offset_bottom = 234.0
+offset_left = -637.0
+offset_top = 233.0
+offset_right = 489.0
+offset_bottom = 475.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
-
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=51924053]
-layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxEmpty_g4v7s")
-
-[node name="Restart" type="Button" parent="VBoxContainer" unique_id=1934705196]
-custom_minimum_size = Vector2(100, 60)
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "RESTART"
-
-[node name="HSeparator3" type="HSeparator" parent="VBoxContainer" unique_id=1561611699]
-layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxEmpty_g4v7s")
-
-[node name="Menu" type="Button" parent="VBoxContainer" unique_id=1084359241]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "MENU"
-
-[node name="HSeparator2" type="HSeparator" parent="VBoxContainer" unique_id=1442389944]
-layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxEmpty_g4v7s")
-
-[node name="Quit_game" type="Button" parent="VBoxContainer" unique_id=128980556]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "QUIT"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=366292752]
 libraries/ = SubResource("AnimationLibrary_mbpyl")
 autoplay = &"Fade"
 
-[connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="VBoxContainer/Menu" to="." method="_on_menu_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit_game" to="." method="_on_quit_game_pressed"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=509322492]
+stream = ExtResource("7_puoxq")
+autoplay = true
+
+[connection signal="mouse_entered" from="Restartbutton" to="." method="_on_restartbutton_mouse_entered"]
+[connection signal="mouse_exited" from="Restartbutton" to="." method="_on_restartbutton_mouse_exited"]
+[connection signal="pressed" from="Restartbutton" to="." method="_on_restartbutton_pressed"]
+[connection signal="mouse_entered" from="Mainmenubutton" to="." method="_on_mainmenubutton_mouse_entered"]
+[connection signal="mouse_exited" from="Mainmenubutton" to="." method="_on_mainmenubutton_mouse_exited"]
+[connection signal="pressed" from="Mainmenubutton" to="." method="_on_mainmenubutton_pressed"]
+[connection signal="mouse_entered" from="Quitgamebutton" to="." method="_on_quitgamebutton_mouse_entered"]
+[connection signal="mouse_exited" from="Quitgamebutton" to="." method="_on_quitgamebutton_mouse_exited"]
+[connection signal="pressed" from="Quitgamebutton" to="." method="_on_quitgamebutton_pressed"]

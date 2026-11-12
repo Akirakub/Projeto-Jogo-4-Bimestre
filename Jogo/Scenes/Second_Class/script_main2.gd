@@ -1,30 +1,39 @@
 extends Control
 
-@onready var label1 = $Label
-@onready var label2 = $Label2
-@onready var label3 = $Label3
-@onready var label4 = $Label4
 
-@onready var resp_label = $Resp
+
+@onready var label1 = $%Cont
 
 var respondida:bool = false
 var buffer:String
-
+var tween_conta:Tween
 var ress: String
+var i:int =0
 var x:=[]
 var sb:=[]
-
+var texto 
 signal evento
+signal errou 
 
 func _ready() -> void:
 	buffer = ""
+	SinalGlobal.beat.connect(_pulsar_conta)
+
+func _pulsar_conta() -> void:
+	if tween_conta:
+		tween_conta.kill()
+	label1.pivot_offset = label1.size / 2
+	label1.scale = Vector2(1.04, 1.04)
+	tween_conta = create_tween()
+	tween_conta.tween_property(label1, "scale", Vector2.ONE, 0.15).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		
 func gerarnumeros(menor:bool):
 	while true:
 		sb=[]
 		x=[]
 		var clone = sb.duplicate(true)
 		for i in range(4):
-			x.append(randi_range(1,10))
+			x.append(randi_range(1,5))
 		for i in range(4):
 			sb.append(randi_range(0,3))
 		for i in range(3):
@@ -40,16 +49,16 @@ func gerarnumeros(menor:bool):
 		
 		if menor == true:
 			if resp != null and resp < 10:
-					var texto:= "%d%s%d%s%d%s%d" % [x[0],clone[0],x[1],clone[1],x[2],clone[2],x[3]]
-					
+					texto = "%d%s%d%s%d%s%d" % [x[0],clone[0],x[1],clone[1],x[2],clone[2],x[3]]
+					label1.text = texto + "="
 					print(texto)
 					ress = str(resp)
 					print(resp)
 					return
 		else:
 			if resp != null and resp > 10 and resp <100:
-					var texto:= "%d%s%d%s%d%s%d" % [x[0],clone[0],x[1],clone[1],x[2],clone[2],x[3]]
-					
+					texto = "%d%s%d%s%d%s%d" % [x[0],clone[0],x[1],clone[1],x[2],clone[2],x[3]]
+					label1.text = texto + "="	
 					print(texto)
 					ress = str(resp)
 					print(resp)
@@ -104,6 +113,7 @@ func _input(event) ->void: # Função que pega todos os inputs
 	# O input está sendo pressionado
 	# E se não é um echo
 		buffer += tecla
+		label1.text = str(texto,"=",buffer)
 		var pos = buffer.length() -1
 		if buffer[pos] == ress[pos]:			
 			evento.emit()
@@ -116,6 +126,7 @@ func _input(event) ->void: # Função que pega todos os inputs
 			#print("Wrong") 
 			#label1.text = str(x1,simb,x2,"=",buffer, " ERRADO!") 
 			SinalGlobal.jogador_errou.emit()
+			errou.emit()
 			#repare q aq eu nem coloquei esse evento.emit, pq nao tem nem pq verificar se ta dentro do limite se a resposta em si
 			# do player ja ta errada
 			respondida = true
@@ -135,9 +146,14 @@ func _on_audio_stream_player_tempo(menor: bool) -> void:
 	#label1.text = str(x1,simb,x2 ,"=",resp) # Muda o texto da tela para o da operação, permitindo
 	# que o player veja a operação e responda
 	#print(buffer) #Printa Buffer, só por questões de debug:
+
 	if respondida == false: # Se o tempo for esgotado quando a operação muda e o player não tiver	
+		if i >= 1:
 			# digitado, a operação vai dar como errado
 			#print("errou, tempo esgotado") #debug
 			SinalGlobal.jogador_errou.emit()
+			errou.emit()
 				#!
+				
+	i += 1			
 	respondida = false # Torna a boolean como falsa, permitindo registrar uma nova resposta para uma # Replace with function body.

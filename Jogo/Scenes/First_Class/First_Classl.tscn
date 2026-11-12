@@ -1,21 +1,31 @@
 [gd_scene format=3 uid="uid://blosmytjubhvb"]
 
 [ext_resource type="PackedScene" uid="uid://bqdjump2wekrt" path="res://Scenes/Characters_Scenes/Professor.tscn" id="1_8ie8l"]
-[ext_resource type="Texture2D" uid="uid://cueofkb3feg5d" path="res://Assets/Scenery/sc2.png" id="1_hkv5h"]
 [ext_resource type="PackedScene" uid="uid://cmcxya71kr6b1" path="res://Scenes/Menu_Scenes/pause_menu.tscn" id="1_wsas0"]
 [ext_resource type="Script" uid="uid://bc0xs0t4nitti" path="res://Scenes/First_Class/script_main.gd" id="1_xvsws"]
 [ext_resource type="PackedScene" uid="uid://d163mevjqqss6" path="res://Scenes/Characters_Scenes/Luis.tscn" id="2_48sx6"]
 [ext_resource type="PackedScene" uid="uid://b6yg53qfiklfm" path="res://Scenes/First_Class/Barra_de_vida.tscn" id="2_rgbb6"]
+[ext_resource type="FontFile" uid="uid://binttr1kyhxus" path="res://Assets/Fonts/Text_Font/Reanim.ttf" id="2_xvsws"]
 [ext_resource type="FontFile" uid="uid://bnkgjkpf0bwi4" path="res://Assets/Fonts/Text_Font/Some Time Later.otf" id="2_yo32x"]
+[ext_resource type="Texture2D" uid="uid://c1h5tavj50oh5" path="res://Assets/Scenery/sala.png" id="3_rgbb6"]
 [ext_resource type="Script" uid="uid://b36yryc2cb2cy" path="res://Scripts/Logica_game/script_metronomo.gd" id="7_ktgsp"]
 [ext_resource type="AudioStream" uid="uid://cn2ctbhx2yrmk" path="res://Sounds/CLASSES/Le_bossa130.mp3" id="8_yo32x"]
-[ext_resource type="Texture2D" uid="uid://cf8bjxdqa3pv1" path="res://Assets/sc1.png" id="10_yo32x"]
+[ext_resource type="Texture2D" uid="uid://bb7y02rr8pmaw" path="res://Assets/Sprites/Characters/icon/frames_90/frames_90/aluno_frame3.png" id="11_2eqex"]
+[ext_resource type="Script" uid="uid://d06je37n3bsis" path="res://Scenes/First_Class/aluno_icon.gd" id="12_7yfod"]
+[ext_resource type="Texture2D" uid="uid://1tjytuvp2e82" path="res://Assets/Sprites/Characters/icon/frames_90/frames_90/professor_frame1.png" id="13_7d81x"]
+[ext_resource type="Script" uid="uid://cvhfafxw1f4np" path="res://Scenes/First_Class/professor_icon.gd" id="14_7yfod"]
+[ext_resource type="Script" uid="uid://bxqrbgkyhckhn" path="res://Scenes/First_Class/cronometro_script.gd" id="15_7d81x"]
+[ext_resource type="Script" uid="uid://cecohonli8ggp" path="res://Scenes/First_Class/teste_cam.gd" id="16_c1xfo"]
+[ext_resource type="Script" uid="uid://kiokbhslhc44" path="res://Scenes/First_Class/TimingBar.gd" id="17_4oavr"]
+[ext_resource type="Texture2D" uid="uid://66eywjitekpm" path="res://Assets/Sprites/timingbar.png" id="18_rvmo4"]
+[ext_resource type="Texture2D" uid="uid://bbnrim3kawths" path="res://Assets/Sprites/marcabranca.png" id="19_rvmo4"]
 
 [sub_resource type="Theme" id="Theme_rgbb6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yo32x"]
-font = ExtResource("2_yo32x")
-font_size = 58
+font = ExtResource("2_xvsws")
+font_size = 80
+font_color = Color(0, 0.521919, 0.5219188, 1)
 outline_size = 1
 
 [node name="Control" type="Control" unique_id=1175343879]
@@ -31,9 +41,9 @@ script = ExtResource("1_xvsws")
 
 [node name="Label" type="Label" parent="Node2D" unique_id=431809630]
 top_level = true
-offset_left = 464.0
-offset_top = 250.0
-offset_right = 989.0
+offset_left = 351.0
+offset_top = 193.0
+offset_right = 854.0
 offset_bottom = 463.0
 theme = SubResource("Theme_rgbb6")
 text = "424242434141"
@@ -41,31 +51,25 @@ label_settings = SubResource("LabelSettings_yo32x")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Resp" type="Label" parent="Node2D" unique_id=1945180919]
-offset_left = 464.0
-offset_top = 250.0
-offset_right = 504.0
-offset_bottom = 273.0
-
 [node name="Lousa" type="TextureRect" parent="." unique_id=1979246411]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.48200002
 anchor_right = 0.48200002
 offset_left = -610.96
-offset_top = -259.0
+offset_top = 11.0
 offset_right = 669.04
 offset_bottom = 731.0
 grow_horizontal = 2
-texture = ExtResource("1_hkv5h")
-
-[node name="CharacterBody2D2" parent="." unique_id=1099341462 instance=ExtResource("2_48sx6")]
-position = Vector2(1126, 385)
+texture = ExtResource("3_rgbb6")
 
 [node name="CharacterBody2D" parent="." unique_id=1540156086 instance=ExtResource("1_8ie8l")]
-position = Vector2(194, 368)
+position = Vector2(133, 385)
 
 [node name="Life" parent="." unique_id=319823806 instance=ExtResource("2_rgbb6")]
+
+[node name="CharacterBody2D2" parent="." unique_id=1099341462 instance=ExtResource("2_48sx6")]
+position = Vector2(1180, 402)
 
 [node name="Pause_menu" parent="." unique_id=1177129093 instance=ExtResource("1_wsas0")]
 visible = false
@@ -75,12 +79,89 @@ stream = ExtResource("8_yo32x")
 bus = &"Music"
 script = ExtResource("7_ktgsp")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1967106622]
-layout_mode = 0
-offset_left = 6.0
-offset_right = 1286.0
-offset_bottom = 720.0
-texture = ExtResource("10_yo32x")
+[node name="Fala" type="Label" parent="." unique_id=835583176]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.48100004
+anchor_right = 0.48100004
+offset_left = -104.68005
+offset_top = 91.0
+offset_right = 330.31995
+offset_bottom = 161.0
+theme_override_fonts/font = ExtResource("2_yo32x")
+theme_override_font_sizes/font_size = 70
 
+[node name="Aluno_icon" type="TextureRect" parent="." unique_id=112565932]
+layout_mode = 0
+offset_left = 944.0
+offset_top = 531.0
+offset_right = 1034.0
+offset_bottom = 621.0
+texture = ExtResource("11_2eqex")
+script = ExtResource("12_7yfod")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=820299490]
+layout_mode = 0
+offset_left = 276.0
+offset_top = 534.0
+offset_right = 366.0
+offset_bottom = 624.0
+texture = ExtResource("13_7d81x")
+script = ExtResource("14_7yfod")
+
+[node name="Combo" type="Label" parent="." unique_id=615601621]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 923.0
+offset_top = 94.0
+offset_right = 1069.0
+offset_bottom = 184.0
+theme_override_colors/font_color = Color(0.3033013, 0.0008684713, 0.4886074, 1)
+theme_override_fonts/font = ExtResource("2_yo32x")
+theme_override_font_sizes/font_size = 90
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=702156855]
+script = ExtResource("15_7d81x")
+
+[node name="Cronometro" type="Label" parent="CanvasLayer" unique_id=1895303636]
+offset_left = 1132.0
+offset_top = 15.0
+offset_right = 1159.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(0.76240367, 0.7624037, 0.7624035, 1)
+theme_override_fonts/font = ExtResource("2_yo32x")
+theme_override_font_sizes/font_size = 55
+text = "11"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1996129621]
+position = Vector2(643, 364)
+script = ExtResource("16_c1xfo")
+
+[node name="BarraPerfect" type="Node2D" parent="." unique_id=775786222]
+script = ExtResource("17_4oavr")
+
+[node name="Background" type="Sprite2D" parent="BarraPerfect" unique_id=1532766319]
+position = Vector2(642, 150)
+scale = Vector2(1.2480469, 1)
+texture = ExtResource("18_rvmo4")
+
+[node name="Pointer" type="Sprite2D" parent="BarraPerfect" unique_id=918319649]
+position = Vector2(400, 149)
+texture = ExtResource("19_rvmo4")
+
+[node name="StartMarker" type="Marker2D" parent="BarraPerfect" unique_id=1436243049]
+position = Vector2(399, 149)
+
+[node name="EndMarker" type="Marker2D" parent="BarraPerfect" unique_id=384472436]
+position = Vector2(835, 148)
+
+[node name="SafeStartMarker" type="Marker2D" parent="BarraPerfect" unique_id=4115641]
+position = Vector2(524, 151)
+
+[node name="SafeEndMarker" type="Marker2D" parent="BarraPerfect" unique_id=563667846]
+position = Vector2(707, 151)
+
+[connection signal="errou" from="." to="AudioStreamPlayer" method="_on_control_errou"]
 [connection signal="evento" from="." to="AudioStreamPlayer" method="_on_control_evento"]
 [connection signal="tempo" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_tempo"]

@@ -1,0 +1,208 @@
+[gd_scene format=3 uid="uid://crurbivntddmk"]
+
+[ext_resource type="Script" uid="uid://danv8qxxnsnoe" path="res://Scenes/Third_class/win_3.gd" id="1_omady"]
+[ext_resource type="Texture2D" uid="uid://cb8rpo3y84fyv" path="res://Assets/Sprites/fundotelawin.png" id="2_6toa4"]
+[ext_resource type="Texture2D" uid="uid://coilw72l0mtvi" path="res://Assets/Sprites/passou.png" id="3_ckd40"]
+[ext_resource type="FontFile" uid="uid://bnkgjkpf0bwi4" path="res://Assets/Fonts/Text_Font/Some Time Later.otf" id="3_gdicf"]
+[ext_resource type="Texture2D" uid="uid://20ny2b1jybk4" path="res://Assets/Sprites/exclamacaowin.png" id="4_7g8k1"]
+[ext_resource type="Texture2D" uid="uid://diga877fd6hm8" path="res://Assets/Sprites/RESTARTpassou.png" id="5_qek07"]
+[ext_resource type="Texture2D" uid="uid://boqpwlbc2ptwf" path="res://Assets/Sprites/restartpassouhover.png" id="6_s0qy7"]
+[ext_resource type="Texture2D" uid="uid://cp0a7hbxx8p4b" path="res://Assets/Sprites/mainmenupassou.png" id="7_744sv"]
+[ext_resource type="Texture2D" uid="uid://cdypwjpqiwl28" path="res://Assets/Sprites/mainmenupassouhover.png" id="8_qtxnu"]
+[ext_resource type="AudioStream" uid="uid://dcbbemqav7i0f" path="res://Sounds/winsound.mp3" id="10_f6qdx"]
+
+[sub_resource type="Animation" id="Animation_137u4"]
+resource_name = "Fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.502376),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.7202103, 0.7202103, 0.7202103, 0), Color(18.892157, 18.892157, 18.892157, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.46666667, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Grade:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.46666667, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_th505"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Grade:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4jcta"]
+_data = {
+&"Fade": SubResource("Animation_137u4"),
+&"RESET": SubResource("Animation_th505")
+}
+
+[node name="WIN" type="Control" unique_id=708020453]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_omady")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=911588743]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1254853631]
+position = Vector2(640.8614, 360)
+scale = Vector2(0.76497746, 0.7651436)
+texture = ExtResource("2_6toa4")
+
+[node name="Passou" type="Sprite2D" parent="." unique_id=386888142]
+position = Vector2(629, 134)
+scale = Vector2(0.23998618, 0.2399862)
+texture = ExtResource("3_ckd40")
+
+[node name="!" type="Sprite2D" parent="." unique_id=863254096]
+position = Vector2(907.00006, 134)
+scale = Vector2(0.20140985, 0.1891494)
+texture = ExtResource("4_7g8k1")
+
+[node name="Restartbutton" type="TextureButton" parent="." unique_id=679247743]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 463.0
+offset_right = 685.0
+offset_bottom = 549.0
+texture_normal = ExtResource("5_qek07")
+texture_hover = ExtResource("6_s0qy7")
+
+[node name="Mainmenubutton" type="TextureButton" parent="." unique_id=964623748]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 327.0
+offset_right = 685.0
+offset_bottom = 413.0
+texture_normal = ExtResource("7_744sv")
+texture_hover = ExtResource("8_qtxnu")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1228032809]
+layout_mode = 0
+offset_left = 755.0
+offset_top = 417.0
+offset_right = 1237.0
+offset_bottom = 680.0
+theme_override_constants/separation = 6
+
+[node name="P" type="Label" parent="VBoxContainer2" unique_id=147214460]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.7465438, 0.19700578, 1)
+theme_override_fonts/font = ExtResource("3_gdicf")
+theme_override_font_sizes/font_size = 50
+text = "122222"
+
+[node name="G" type="Label" parent="VBoxContainer2" unique_id=762254344]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.51788515, 0.6539722, 0.060160138, 1)
+theme_override_fonts/font = ExtResource("3_gdicf")
+theme_override_font_sizes/font_size = 50
+text = "22"
+
+[node name="M" type="Label" parent="VBoxContainer2" unique_id=1175668519]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.861543, 0.7754978, 1.1551381e-06, 1)
+theme_override_fonts/font = ExtResource("3_gdicf")
+theme_override_font_sizes/font_size = 50
+text = "33"
+
+[node name="W" type="Label" parent="VBoxContainer2" unique_id=508671250]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.45948678, 0.47591394, 1)
+theme_override_fonts/font = ExtResource("3_gdicf")
+theme_override_font_sizes/font_size = 50
+text = "44"
+
+[node name="ComboMax" type="Label" parent="VBoxContainer2" unique_id=1201021726]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9999998, 0.27329752, 0.99778575, 1)
+theme_override_fonts/font = ExtResource("3_gdicf")
+theme_override_font_sizes/font_size = 60
+text = "44"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=358366959]
+libraries/ = SubResource("AnimationLibrary_4jcta")
+autoplay = &"Fade"
+
+[node name="Grade" type="Label" parent="." unique_id=808040124]
+layout_mode = 0
+offset_left = 721.0
+offset_top = 227.0
+offset_right = 905.0
+offset_bottom = 336.0
+theme_override_colors/font_color = Color(0.3877347, 0.6126066, 0.9393983, 1)
+theme_override_fonts/font = ExtResource("3_gdicf")
+theme_override_font_sizes/font_size = 90
+text = "s"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=616822979]
+stream = ExtResource("10_f6qdx")

@@ -22,15 +22,27 @@ var res # Vetor para armazenar o retorno
 #Ex: Um retorno pode ser tipo [10,20,30] 
 var ress: String # É o vetor convertido para string, vou utilizar ele para pegar o lenght e calcular até quantos inputs são aceitos
 var buffer:String = "" # Buffer do teclado, registra o que o player digitar
+var tween_conta:Tween
 
 var respondida:bool = false # Boolean utilizada pra ver se o player já digitou, para evitar que responda duas vezes
 
 signal evento() #dps que o player digita, esse sinal é enviado pra verificar se o tempo que ele acertou está dentro do intervalo permitido
+signal errou()
 var i:int = 0 
 #endregion
 
 func _ready() -> void: # Função principal do código, carregada quando a cena entra
 	label1.text = ""
+	SinalGlobal.beat.connect(_pulsar_conta)
+	
+func _pulsar_conta() -> void:
+	if tween_conta:
+		tween_conta.kill()
+	label1.pivot_offset = label1.size / 2
+	label1.scale = Vector2(1.04, 1.04)
+	tween_conta = create_tween()
+	tween_conta.tween_property(label1, "scale", Vector2.ONE, 0.15).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	
 func gerarconta(tipo,menor:bool): # Função gerar conta, ele gera uma conta # Tipo de operação. Ex: Soma, subtração...
 	while true:
 		x1 = randi_range(r_x1[0],r_x1[1]*2) # Define a váriavel x1, por um valor aleatório, dentro
@@ -89,17 +101,21 @@ func _input(event) ->void: # Função que pega todos os inputs
 	# E se não é um echo
 		buffer += tecla
 		var pos = buffer.length() -1
+		
+		label1.text = str(x1,simb,x2 ,"=",buffer) # Muda o texto da tela para o da operação, permitindo
 		if buffer[pos] == ress[pos]:			
 			evento.emit()
 			if buffer.length() == ress.length():
 				respondida = true
 				buffer = ""
+				
 					#evento.emit() # emite o evento q eu ja falei la em cima (ve se o input ta no intervalo certo)
 		else:
 			#Aqui é a mesma coisa mas caso ele ere.
 			#print("Wrong") 
 			#label1.text = str(x1,simb,x2,"=",buffer, " ERRADO!") 
 			SinalGlobal.jogador_errou.emit()
+			errou.emit()
 			#repare q aq eu nem coloquei esse evento.emit, pq nao tem nem pq verificar se ta dentro do limite se a resposta em si
 			# do player ja ta errada
 			respondida = true
@@ -130,6 +146,7 @@ func _on_audio_stream_player_tempo(menor:bool) -> void: # Quando o signal do out
 			# digitado, a operação vai dar como errado
 			#print("errou, tempo esgotado") #debug
 			SinalGlobal.jogador_errou.emit()
+			errou.emit()
 				#!
 	i = i + 1
 	respondida = false # Torna a boolean como falsa, permitindo registrar uma nova resposta para uma

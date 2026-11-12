@@ -13,7 +13,7 @@ config_version=5
 config/name="Ritmatica Alpha"
 run/main_scene="uid://ckr5cthiaj3qf"
 config/features=PackedStringArray("4.7", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://cux6tpw683sa6"
 
 [audio]
 

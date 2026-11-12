@@ -1,11 +1,10 @@
 extends TextureRect
 # varivel pra contar o indice do array e trocar a foto
 var i:int=0
-#array de armazenar as fotos da cutscene
+#array de aarmazenar as fotos da cutscene
 @export var image: Array[Texture2D]=[ 
-	preload("res://Assets/Scenery/sc2.png"),  
-	preload("res://Assets/Scenery/sc1.png"), 
-	preload("res://Assets/Sprites/Random/Números/Sete.png")    
+	preload("res://Assets/Scenery/Tutorial.png"), 
+	preload("res://Assets/Scenery/PRIMEIRO ATO.png"),     
 ]						
 # Mostra a imagem 
 func _ready() -> void:

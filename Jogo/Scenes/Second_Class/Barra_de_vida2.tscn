@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://704s8dmq8gde"]
+
+[ext_resource type="Script" uid="uid://d0oqy28xklge1" path="res://Scenes/Second_Class/Life2.gd" id="1_a4gga"]
+[ext_resource type="Texture2D" uid="uid://bvtdnkswv1b3" path="res://Assets/Sprites/Random/healthbar_under (1).png" id="1_ludr2"]
+[ext_resource type="Texture2D" uid="uid://crjfw724un8qu" path="res://Assets/Sprites/Random/healthbar_progress (1).png" id="2_40b8k"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=319823806]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=411673438]
+anchors_preset = -1
+anchor_left = 0.485
+anchor_right = 0.485
+offset_left = -276.80005
+offset_top = 527.0
+offset_right = 295.19995
+offset_bottom = 595.0
+max_value = 7.0
+value = 7.0
+texture_under = ExtResource("1_ludr2")
+texture_progress = ExtResource("2_40b8k")
+script = ExtResource("1_a4gga")

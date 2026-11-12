@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dc4irnmcevgjp"
+path="res://.godot/imported/El Ritimatica.mp3-b76cba2aabc0cc62ebace2ca90e73215.mp3str"
+
+[deps]
+
+source_file="res://Sounds/CLASSES/El Ritimatica.mp3"
+dest_files=["res://.godot/imported/El Ritimatica.mp3-b76cba2aabc0cc62ebace2ca90e73215.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

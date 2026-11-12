@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://1k8gdjjmaado"]
+
+[ext_resource type="Texture2D" uid="uid://c1at5cagrblom" path="res://Assets/Sprites/Characters/Personagens , grandes/matematicatron_idle_spritesheet.png" id="1_tj8ju"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uj5st"]
+atlas = ExtResource("1_tj8ju")
+region = Rect2(0, 0, 374, 536)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s55ox"]
+atlas = ExtResource("1_tj8ju")
+region = Rect2(374, 0, 374, 536)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xoulw"]
+atlas = ExtResource("1_tj8ju")
+region = Rect2(748, 0, 374, 536)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5poio"]
+atlas = ExtResource("1_tj8ju")
+region = Rect2(1122, 0, 374, 536)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_galle"]
+atlas = ExtResource("1_tj8ju")
+region = Rect2(1496, 0, 374, 536)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ukt5"]
+atlas = ExtResource("1_tj8ju")
+region = Rect2(1870, 0, 374, 536)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmfs1"]
+atlas = ExtResource("1_tj8ju")
+region = Rect2(2244, 0, 374, 536)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltg2m"]
+atlas = ExtResource("1_tj8ju")
+region = Rect2(2618, 0, 374, 536)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uj5st")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s55ox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xoulw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5poio")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_galle")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ukt5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmfs1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ltg2m")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 16.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=2108264313]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1747989181]
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
+frame_progress = 0.40728757
