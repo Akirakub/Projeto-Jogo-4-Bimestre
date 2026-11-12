@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ritmatica</title>
-  <link rel="icon" type="image/png" href="https://i.postimg.cc/4NXZ9stc/Texto-do-seu-paragrafo.png">
+  <link rel="icon" type="image/png" href="icone.png">
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
@@ -21,6 +21,7 @@
       <a href="#gameplay">Gameplay</a>
       <a href="tutorial.html">Tutorial</a>
       <a href="#fases">Fases</a>
+      <a href="#codigos">Códigos</a>
       <a href="#midia">Mídia</a>
       <a href="#ferramentas">Ferramentas</a>
       <a href="#equipe">Equipe</a>
@@ -38,7 +39,7 @@
     <section id="sobre">
       <h2>Sobre o Jogo</h2>
       <p><strong>Ritmatica</strong> é um jogo dinâmico que mistura as mecânicas de um jogo de ritmo com contas matemáticas.</p>
-      <p>Na história, acompanhamos o Joãozinho, um aluno que está com notas baixas na escola e que passa por vários problemas. Quando o professor percebe a situação, ele faz uma proposta para Joãozinho: para salvar o seu ano letivo, ele precisa passar por um desafio único. A missão é responder perguntas matemáticas no ritmo da música! Cada acerto mantém a música tocando normalmente, enquanto um erro pode alterar a música e prejudicar Joãozinho.</p>
+      <p>A história começa com um aluno que está com notas baixas na escola e que passa por vários problemas. Quando o professor percebe a situação, ele faz uma proposta para o aluno: para salvar o seu ano letivo, ele vai precisar passar por um desafio. A missão é responder perguntas matemáticas no ritmo da música! Cada acerto mantém a música tocando normalmente, mas um erro pode alterar a música e prejudicar o aluno.</p>
     </section>
 
     <!-- GAMEPLAY COM VÍDEO -->
@@ -48,7 +49,7 @@
       
       <div class="video-container">
         <iframe 
-          src="" 
+          src="gameplayritmatica.mp4" 
           title="Vídeo da Gameplay" 
           frameborder="0" 
           allow=encrypted-media; allowfullscreen>
@@ -59,18 +60,25 @@
     <!-- FASES -->
     <section id="fases">
       <h2>Fases</h2>
-      <p>Fases que o Joãozinho vai passar na experiência Ritmatica.</p>
+      <p>Fases que o aluno vai passar na experiência Ritmatica.</p>
 
       <div class="fases-container">
         <!-- FASE 1 -->
         <div class="fase-card">
           <div class="fase-info">
             <h3>Fase 1 - Contas Simples</h3>
-            <p>Na primeira fase o desafio é responder à contas matemáticas simples (adição, subtração, multiplicação e divisão)
-            </p>
+            <p>Na primeira fase o desafio é responder à contas matemáticas simples (adição, subtração, multiplicação e divisão) no ritmo da música.</p>
+            
+            <!-- Player de Música da Fase 1 -->
+            <div class="player-container">
+              <p class="audio-label">Trilha Sonora da Fase 1:</p>
+              <audio controls class="audio-fase">
+                <source src="fase1.mp3" type="audio/mpeg">
+              </audio>
+            </div>
           </div>
           <div class="fase-imagem-container">
-            <img src="telapretafullhd.png" class="fase-img-hover">
+            <img src="fase1.gif" class="fase-img-hover">
           </div>
         </div>
 
@@ -79,9 +87,17 @@
           <div class="fase-info">
             <h3>Fase 2 - Expressões Numéricas</h3>
             <p>Na fase 2 o jogador precisa resolver expressões numéricas mais complexas com 4 termos, e também deve respeitar a ordem das operações e manter o ritmo da música.</p>
+            
+            <!-- Player de Música da Fase 2 -->
+            <div class="player-container">
+              <p class="audio-label">Trilha Sonora da Fase 2:</p>
+              <audio controls class="audio-fase">
+                <source src="fase2.mp3" type="audio/mpeg">
+              </audio>
+            </div>
           </div>
           <div class="fase-imagem-container">
-            <img src="telapretafullhd.png" class="fase-img-hover">
+            <img src="fase2.gif" class="fase-img-hover">
           </div>
         </div>
 
@@ -89,20 +105,38 @@
         <div class="fase-card">
           <div class="fase-info">
             <h3>Fase 3 - Sequências</h3>
-            <p>Na fase 3 o jogador precisa descobrir qual é a sequência, na terceira fase tem alguns números sequenciais e o jogador precisa descobrir qual é a regra desta sequência!</p>
+            <p>Na fase 3 o jogador precisa descobrir qual é a sequência, aparece uma sequência de números que seguem uma regra  e o jogador precisa descobrir qual é a regra desta sequência!</p>
+            
+            <!-- Player de Música da Fase 3 -->
+            <div class="player-container">
+              <p class="audio-label">Trilha Sonora da Fase 3:</p>
+              <audio controls class="audio-fase">
+                <source src="fase3.mp3" type="audio/mpeg">
+              </audio>
+            </div>
           </div>
           <div class="fase-imagem-container">
-            <img src="telapretafullhd.png" class="fase-img-hover">
+            <img src="fase3.gif" class="fase-img-hover">
           </div>
         </div>
       </div>
     </section>
+        
+    <!-- FOTOS DO CÓDIGO -->
+    <section id="codigos">
+      <h1>Códigos</h1>
+      <p>Os códigos principais do projeto Ritmatica</p>
+      <a href="#codigo"></a>
+          <div class="storyboard-grid">
+        <div class="storyboard-item"><img src="script_main.png" class="img-expandivel"></div>
+        <div class="storyboard-item"><img src="script_metronomo.png" class="img-expandivel"></div>
+    </section>
 
-<section id="midia" class="alt">
+    <section id="midia" class="alt">
       <h2>Mídia</h2>
       <p>Imagens e artes visuais do projeto.</p>
-
-      <h3>Storyboards</h3>
+      <br>
+      <h2>Storyboards</h2>
       <div class="storyboard-grid">
         <div class="storyboard-item"><img src="storyboard1.png" class="img-expandivel"></div>
         <div class="storyboard-item"><img src="storyboard2.png" class="img-expandivel"></div>
@@ -113,17 +147,17 @@
         <div class="storyboard-item"><img src="storyboard7.png" class="img-expandivel"></div>
         <div class="storyboard-item"><img src="storyboard8.png" class="img-expandivel"></div>
       </div>
-
-      <h3>Evolução das Sprites</h3>
-      <!-- Joãozinho (3 sprites) -->
-      <h3>Joãozinho</h3>
+      <br>
+      <h2>Evolução das Sprites</h2>
+      <!-- Aluno -->
+      <h3>Aluno</h3>
       <div class="storyboard-grid">
-        <div class="storyboard-item"><img src="joaozinho_sprite1.jpeg" class="img-expandivel"></div>
-        <div class="storyboard-item"><img src="joaozinho_sprite2.jpeg" class="img-expandivel"></div>
-        <div class="storyboard-item"><img src="joaozinho_sprite3.jpeg" class="img-expandivel"></div>
+        <div class="storyboard-item"><img src="aluno_sprite1.jpeg" class="img-expandivel"></div>
+        <div class="storyboard-item"><img src="aluno_sprite2.jpeg" class="img-expandivel"></div>
+        <div class="storyboard-item"><img src="aluno_sprite3.jpeg" class="img-expandivel"></div>
       </div>
 
-      <!-- Professor (3 sprites) -->
+      <!-- Professor -->
       <h3>Professor</h3>
       <div class="storyboard-grid">
         <div class="storyboard-item"><img src="professor_sprite1.gif" class="img-expandivel"></div>
@@ -131,11 +165,20 @@
         <div class="storyboard-item"><img src="professor_sprite3.jpeg" class="img-expandivel"></div>
       </div>
 
-      <!-- Lousa (2 sprites) -->
+      <!-- Lousa -->
       <h3>Lousa</h3>
       <div class="storyboard-grid">
         <div class="storyboard-item"><img src="lousa_sprite1.jpeg" class="img-expandivel"></div>
         <div class="storyboard-item"><img src="lousa_sprite2.jpeg" class="img-expandivel"></div>
+      </div>
+
+      <!-- Quadrinhos -->
+      <br>
+      <h2>Quadrinhos</h2>
+      <div class="storyboard-grid">
+        <div class="storyboard-item"><img src="hq1.png" class="img-expandivel"></div>
+        <div class="storyboard-item"><img src="hq2.png" class="img-expandivel"></div>
+        <div class="storyboard-item"><img src="hq3.png" class="img-expandivel"></div>
       </div>
     </section>
 
@@ -170,8 +213,23 @@
         </div>
       </div>
     </section>
+<br><br>
+          <h2>Documentação</h2>
+        <p>Confira a Documentação do projeto Ritmatica</p>
+    <section id="documentacao" class="container-documentacao">
+      <div class="coluna-botao">
+          <a href="Documentacao.pdf" target="_blank" rel="noopener noreferrer" class="btn-documentacao">
+              <img src="iconedownload.png" class="icone-download">
+              Baixar a Documentação
+          </a>
+      </div>
 
-<section id="equipe" class="alt">
+      <div class="coluna-previa">
+          <embed src="Documentacao.pdf" type="application/pdf" width="100%" height="800px" />
+      </div>
+    </section>
+
+    <section id="equipe" class="alt">
       <h2>Equipe de Desenvolvimento</h2>
       <p>Estudantes que criaram o projeto.</p>
       
@@ -192,20 +250,16 @@
         <button class="carousel-btn next-btn" aria-label="Próximo membro">&#10095;</button>
       </div>
     </section>
+  </main>
 
-    <!-- COMANDO PARA EXPANDIR IMAGENS -->
-    <div id="modal-imagem" class="modal">
-      <span class="fechar-modal">&times;</span>
-      <img class="modal-conteudo" id="img-ampliada">
-    </div>
+  <!-- COMANDO PARA EXPANDIR IMAGENS -->
+  <div id="modal-imagem" class="modal">
+    <span class="fechar-modal">&times;</span>
+    <img class="modal-conteudo" id="img-ampliada">
+  </div>
 
   <footer>
     
-          <a href="Documentacao.pdf" target="_blank" rel="noopener noreferrer" class="btn-documentacao">
-        <img src="iconedownload.png" class="icone-download">
-        Baixar a Documentação
-      </a>
-      
     <p>&copy; 2026 Ritmatica - Todos os direitos reservados</p>
   </footer>
 

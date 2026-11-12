@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { 
       nome: "Arthur Muller", 
       cargo: "Documentação", 
-      github: "https://github.com",
+      github: "https://github.com/Arthur7745",
       avatar: "arthurmuller.jpg" 
     },
     {
