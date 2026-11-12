@@ -18,7 +18,7 @@
 *   **Fases e Desafios:**
     *   *Fase 1:* Ensinando as mecânicas de ritmo e os cálculos básicos.
     *   *Fase 2:* Desafios focados em expressões numéricas mais complexas.
-    *   *Fase 3:* Sequência com BPM mais alto e respostas mais dinâmicas.
+    *   *Fase 3:* Sequências numéricas com BPM mais alto e respostas mais dinâmicas.
 *   **Sistema de Combos e Feedback:** Multiplicador de pontuação progressivo mostrando o combo.
 *   **Sincronização Musical:** O controle de tempo foi feito por `BPM`, `secPerBeat` e posição de reprodução do `AudioStreamPlayer`.
 
