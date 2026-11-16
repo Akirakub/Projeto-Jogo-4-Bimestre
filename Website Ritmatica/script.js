@@ -1,14 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => { 
-  // Aguarda o documento HTML ser completamente carregado antes de executar o script
-  // BLOCO DE ENTRADA DE INFORMAÇÕES DOS MEMBROS NO PROGRAMA
+  // Comando pra esperar o documento HTML ser completamente carregado antes de executar o script
+  // ENTRADA DE INFORMAÇÕES DOS MEMBROS NO PROGRAMA
   const membros = [  // Declaro um array contendo os objetos com as informações de cada membro da equipe
-  //Aqui tem um bloco de colchetes para cada membro que eu coloco os nomes dos 4 tipos de variáveis (nome, cargo, github e avatar) e eles armazenam, respectivamente, o nome do membro, o cargo do membro, o link dele no github e a foto dele
+  //Aqui tem um bloco de colchetes para cada membro que eu coloco os nomes dos 4 tipos de variáveis (nome, cargo, github e avatar) e eles guardam as informações
     { 
       nome: "Bruno Lacerda", // Armazena o nome do membro 
       cargo: "Desenvolvedor WEB", //Armazena o cargo do membro
       github: "https://github.com/brunelaz", //Armazena o link do github do membro 
       avatar: "bruno.jpg" // Armazena a foto/avatar do membro 
-      //Segue a mesma lógica para os próximos blocos
+      //Segue a mesma lógica para os outros blocos
     }, //Fecha o bloco do primeiro membro
     { //Abre o bloco do próximo membro, e assim segue até o final dos blocos 
       nome: "Fernando Akira", 
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
   
   //BLOCO DE CRIAR OS BOTÕES E A TRILHA DO CARROSSEL
-  const track = document.getElementById('carousel-track'); //Seleciona o elemento (container) em que os cards do carrossel serão colocados 
+  const track = document.getElementById('carousel-track'); //Seleciona o elemento que os cards do carrossel serão colocados 
   //Aqui essa linha de código funciona da seguinte forma:
   // O const cria uma variável nova com o nome de "track" que é um nome comum para uma trilha de carrossel com um valor que será impossível alterar depois, o "const" cria uma variável que nunca mais pode ter outro valor depois que foi atribuido um valor para ela pela primeira vez
   // para atribuir um valor para essa variável, o "document" representa a página inteira HTML
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   const btnNext = document.querySelector('.next-btn'); //Faz a mesma coisa que a linha acima, mas com o botão de avançar o carrossel
 
-  if (!track || !btnPrev || !btnNext) return; //A função dessa linha é interromper a execução do código JavaScript se os botões de avançar, voltar ou trilha não forem encontrados
+  if (!track || !btnPrev || !btnNext) return; //IF pra ver se os botões de avançar, voltar ou trilha não foram encontrados e interromper a execução do código JavaScript
   //A lógica dessa condicional funciona assim:
   // Aqui, o sinal de exclamação (!) significa "NÃO", então é assim: se o if não encontrar o track OU (||) não achou o btnPrev OU (||) não achou o btnNext, he executa o comando "return" que cancela o código inteiro
 
@@ -136,19 +136,19 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentIndex = 4; // Cria uma variável que vai guardar o número da posição (índice) do card que está ativo (aparecendo no centro) no momento
   // Explicando parte por parte:
   // let: cria uma variável que pode ter seu valor alterado (diferente do const, porque o número da página atual vai mudar conforme o usuário clicar nos botões)
-  // currentIndex: é o nome que demos para a variável que guarda o índice atual, começando no 0 (o primeiro membro da lista)
+  // currentIndex: é o nome que demos para a variável que guarda o índice atual, começando no 4 (o último membro da lista)
 
   // BLOCO DA FUNÇÃO QUE ATUALIZA A APARÊNCIA DOS CARDS NO CARROSSEL
   function updateCarousel() { // Cria uma função chamada "updateCarousel" (atualizar carrossel) que vai organizar quem fica ativo, quem fica na esquerda e quem fica na direita
     cards.forEach((card, index) => { // Laço de repetição que passa por cada um dos cards salvos na lista
-      card.classList.remove('active', 'prev', 'next'); // Remove todas as classes de posição antiga do card para evitar que fiquem duas classes ao mesmo tempo
+      card.classList.remove('active', 'prev', 'next'); // Tira todas as classes de posição antiga do card para evitar que fiquem duas classes ao mesmo tempo
 
-      if (index === currentIndex) { // Verifica se o card da vez é exatamente o card da posição atual (central)
+      if (index === currentIndex) { // IF pra ver se o card da vez é exatamente o card da posição atual (central)
         card.classList.add('active'); // Se for, adiciona a classe CSS 'active' para ele ficar grande e no centro
-      } else if (index === (currentIndex - 1 + cards.length) % cards.length) { // Verifica se o card da vez é o card anterior (que fica na esquerda)
-        card.classList.add('prev'); // Se for, adiciona a classe CSS 'prev' para ele ficar menor e do lado esquerdo
-      } else if (index === (currentIndex + 1) % cards.length) { // Verifica se o card da vez é o próximo (que fica na direita)
-        card.classList.add('next'); // Se for, adiciona a classe CSS 'next' para ele ficar menor e do lado direito
+      } else if (index === (currentIndex - 1 + cards.length) % cards.length) { // IF pra ver se o card da vez é o card anterior (que fica na esquerda)
+        card.classList.add('prev'); // Se for adiciona a classe CSS 'prev' para ele ficar menor e do lado esquerdo
+      } else if (index === (currentIndex + 1) % cards.length) { // IF pra ver se o card da vez é o próximo (que fica na direita)
+        card.classList.add('next'); // Se for adiciona a classe CSS 'next' para ele ficar menor e do lado direito
       }
     });
   }
@@ -170,44 +170,62 @@ document.addEventListener('DOMContentLoaded', () => {
   btnPrev.addEventListener('click', prevCard); // Adiciona uma função que recebe o clique no botão de voltar (seta para a esquerda). Quando o usuário clica, ele roda a função "prevCard"
 
   // CLIQUE NOS CARDS LATERAIS PARA NAVEGAR DIRETAMENTE
-  cards.forEach((card) => {
-    card.addEventListener('click', (e) => {
-      if (card.classList.contains('prev')) {
-        e.preventDefault(); // Evita abrir o link se for o card lateral, apenas navega o carrossel
-        prevCard();
-      } else if (card.classList.contains('next')) {
-        e.preventDefault();
-        nextCard();
+  cards.forEach((card) => { // Laço de repetição que passa por cada um dos cards do carrossel para adicionar o evento de clique neles
+    card.addEventListener('click', (e) => { // Adiciona um "ouvinte" de clique em cada card; a letra (e) guarda as informações desse evento de clique
+      if (card.classList.contains('prev')) { // IF pra ver se o card que foi clicado possui a classe CSS 'prev' (ou seja, se ele é o card que está na esquerda)
+        e.preventDefault(); // Impede o comportamento padrão da tag <a> (que seria abrir o link do GitHub), fazendo com que o clique sirva apenas para navegar o carrossel
+        prevCard(); // Chama a função que faz o carrossel voltar um card, trazendo o card da esquerda para o centro
+      } else if (card.classList.contains('next')) { // IF pra ver se o card que foi clicado possui a classe CSS 'next' (ou seja, se ele é o card que está na direita)
+        e.preventDefault(); // Também impede que o link do GitHub seja aberto ao clicar no card lateral direito
+        nextCard(); // Chama a função que faz o carrossel avançar um card, trazendo o card da direita para o centro
       }
+      // Se o card clicado não tiver nem 'prev' nem 'next' (ou seja, é o card 'active' do centro), o código não entra em nenhum IF e abre o link do GitHub normalmente
     });
   });
 
   updateCarousel(); // Executa a função de atualização uma vez logo no começo para alinhar os cards na posição inicial correta
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const modal = document.getElementById("modal-imagem");
-  const imgAmpliada = document.getElementById("img-ampliada");
-  const fechar = document.querySelector(".fechar-modal");
-  const imagensExpandiveis = document.querySelectorAll(".img-expandivel");
+// BLOCO DO MODAL DE AMPLIAÇÃO DE IMAGENS
+document.addEventListener("DOMContentLoaded", () => { // Aguarda o documento HTML terminar de carregar antes de rodar o script do modal
+  // Explicando parte por parte:
+  // document: representa a página HTML inteira
+  // addEventListener("DOMContentLoaded", ...): fica "escutando" o navegador até que toda a estrutura HTML esteja pronta para ser manipulada sem erros
 
-  imagensExpandiveis.forEach(img => {
-    img.addEventListener("click", () => {
-      modal.style.display = "flex";
-      imgAmpliada.src = img.src;
+  const modal = document.getElementById("modal-imagem"); // Cria a constante "modal" e captura a caixa/janela escura do modal pelo ID 'modal-imagem' no HTML
+  const imgAmpliada = document.getElementById("img-ampliada"); // Cria a constante "imgAmpliada" e captura a tag <img> vazia dentro do modal pelo ID 'img-ampliada'
+  const fechar = document.querySelector(".fechar-modal"); // Cria a constante "fechar" e seleciona o botão (geralmente um "X") com a classe CSS '.fechar-modal'
+  const imagensExpandiveis = document.querySelectorAll(".img-expandivel"); // Busca todas as imagens da página que têm a classe '.img-expandivel' e guarda todas em uma lista
+
+  // LAÇO PARA ADICIONAR O CLIQUE EM CADA IMAGEM EXPANDÍVEL
+  imagensExpandiveis.forEach(img => { // Passa por cada uma das imagens encontradas na lista "imagensExpandiveis", chamando a imagem da vez de "img"
+    img.addEventListener("click", () => { // Adiciona um evento que fica esperando o usuário clicar nessa imagem específica
+      modal.style.display = "flex"; // Muda o estilo CSS 'display' do modal (que estava escondido como 'none') para 'flex', fazendo a janela aparecer na tela centralizada
+      imgAmpliada.src = img.src; // Copia o caminho da foto (src) da imagem que foi clicada e cola dentro do src da imagem ampliada do modal
+      modal.scrollTop = 0; // Garante que a barra de rolagem do modal volte para o topo (posição 0) toda vez que uma nova imagem for aberta
+
+      if (img.classList.contains("img-codigo")) { // IF pra ver se a imagem clicada possui a classe CSS "img-codigo" (usada para prints de código muito altos/compridos)
+        modal.classList.add("modal-rolavel"); // Se for uma imagem de código, adiciona a classe 'modal-rolavel' no modal para ativar a barra de rolagem vertical
+      } else { // Caso contrário (se não for uma imagem de código)
+        modal.classList.remove("modal-rolavel"); // Tira a classe 'modal-rolavel' para que imagens comuns fiquem ajustadas na tela sem rolagem extra
+      }
     });
   });
 
-  if (fechar) {
-    fechar.addEventListener("click", () => {
-      modal.style.display = "none";
+  // BLOCO PARA FECHAR O MODAL PELO BOTÃO "X"
+  if (fechar) { // IF pra ver se o botão de fechar (".fechar-modal") realmente existe na página HTML antes de tentar adicionar um evento nele
+    fechar.addEventListener("click", () => { // Adiciona um evento de clique no botão de fechar
+      modal.style.display = "none"; // Muda o display do modal de volta pra 'none', ai ele desaparece da tela
+      modal.classList.remove("modal-rolavel"); // Tira a classe de rolagem para deixar o modal limpo para a próxima vez que for aberto
     });
   }
 
-  if (modal) {
-    modal.addEventListener("click", (e) => {
-      if (e.target === modal) {
-        modal.style.display = "none";
+  // BLOCO PARA FECHAR O MODAL CLICANDO NO FUNDO ESCURO (FORA DA IMAGEM)
+  if (modal) { // IF pra ver se o elemento do modal ("#modal-imagem") existe na página HTML
+    modal.addEventListener("click", (e) => { // Adiciona um evento de clique no modal inteiro; o parâmetro (e) guarda exatamente onde o mouse clicou
+      if (e.target === modal) { // IF pra ver se o alvo exato do clique (e.target) foi o fundo escuro do modal em si, e não a imagem ampliada que está dentro dele
+        modal.style.display = "none"; // Se clicou fora da imagem, esconde o modal mudando o display para 'none'
+        modal.classList.remove("modal-rolavel"); // Tira a classe de rolagem para resetar o estado do modal
       }
     });
   }
